@@ -6,4 +6,5 @@ __pycache__/
 *.log
 .vscode/*
 !.vscode/extensions.json
+!.vscode/tasks.json
 out/

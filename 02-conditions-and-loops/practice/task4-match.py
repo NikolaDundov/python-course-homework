@@ -1,0 +1,40 @@
+# Task 4: match
+# Run: python 02-conditions-and-loops/practice/task4-match.py
+#
+# 1. Product groups. Inside the first loop, set group with match:
+#      "mortgage", "consumer", "credit_card", "overdraft"       -> "retail"
+#      "working_capital", "investment", "project_finance"       -> "business"
+#      anything else                                            -> "unknown"
+#    Use | to put several values in one case.
+# 2. A currency converter (Bulgaria uses the euro since 2026, at the fixed rate
+#    1 EUR = 1.95583 BGN). The second loop gives a menu choice and an amount:
+#      choice "1": EUR to BGN - result = amount * RATE
+#      choice "2": BGN to EUR - result = amount / RATE
+#      any other choice: result = "wrong choice"
+#    For "1" and "2", result is a text with 2 decimals: f"{value:.2f}".
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # the repository root, where check.py is
+from check import check
+
+RATE = 1.95583
+
+groups = ""
+for product in ["mortgage", "consumer", "credit_card", "overdraft",
+                "working_capital", "investment", "project_finance", "leasing"]:
+    # ---- your code ----
+    group = None
+    # ---- end of your code ----
+    groups += f"{group};"
+
+results = ""
+for choice, amount in [("1", 100.0), ("2", 195.58), ("3", 50.0), ("1", 1000.0)]:
+    # ---- your code: part 2 ----
+    result = None
+    # ---- end of your code ----
+    results += f"{result};"
+
+check("groups", groups, "retail;retail;retail;retail;business;business;business;unknown;")
+check("results", results, "195.58;100.00;wrong choice;1955.83;")

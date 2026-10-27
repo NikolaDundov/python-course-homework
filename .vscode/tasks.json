@@ -1,0 +1,30 @@
+// execute python file
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run with Python",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true,
+                "clear": true,
+                "echo": false,
+                "showReuseMessage": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
