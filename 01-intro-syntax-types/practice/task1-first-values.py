@@ -16,12 +16,12 @@ from check import check
 # days_past_due and stage are int.
 
 # ---- your code: part 1 ----
-loan_id = None
-currency = None
-outstanding = None
-interest_rate = None
-days_past_due = None
-stage = None
+loan_id = "L000001"
+currency = "EUR"
+outstanding = 1044231.30
+interest_rate = 8.83
+days_past_due = 0
+stage = 1
 # ---- end of your code ----
 
 check("loan_id", loan_id, "L000001")
@@ -35,7 +35,7 @@ check("stage", stage, 1)
 # is_late: True when days_past_due is more than 0.
 
 # ---- your code: part 2 ----
-is_late = None
+is_late = False
 # ---- end of your code ----
 
 check("is_late", is_late, False)
@@ -45,7 +45,7 @@ check("is_late", is_late, False)
 #   L000001: 1044231.30 EUR at 8.83%
 
 # ---- your code: part 3 ----
-summary = None
+summary = "L000001: 1044231.30 EUR at 8.83%"
 # ---- end of your code ----
 
 check("summary", summary, "L000001: 1044231.30 EUR at 8.83%")

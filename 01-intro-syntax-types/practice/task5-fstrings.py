@@ -22,7 +22,7 @@ stage = 1
 # client_code: "C" and client_number with 4 digits, zeros in front -> "C0080"
 
 # ---- your code: part 1 ----
-client_code = None
+client_code = "C" + f"{client_number:04d}"
 # ---- end of your code ----
 
 check("client_code", client_code, "C0080")
@@ -32,7 +32,8 @@ check("client_code", client_code, "C0080")
 # -> "1,044,231.30"
 
 # ---- your code: part 2 ----
-amount_text = None
+amount_text = f"{outstanding:>12,.2f}"
+
 # ---- end of your code ----
 
 check("amount_text", amount_text, "1,044,231.30")
@@ -41,7 +42,8 @@ check("amount_text", amount_text, "1,044,231.30")
 # amount_bg: the same in the Bulgarian format -> "1 044 231,30"
 
 # ---- your code: part 3 ----
-amount_bg = None
+amount_raw = f"{outstanding:,.2f}"
+amount_bg = amount_raw.replace(",", " ").replace(".", ",")
 # ---- end of your code ----
 
 check("amount_bg", amount_bg, "1 044 231,30")
@@ -50,7 +52,7 @@ check("amount_bg", amount_bg, "1 044 231,30")
 # pd_text: pd_value as a percent with 2 decimals -> "0.49%"
 
 # ---- your code: part 4 ----
-pd_text = None
+pd_text = f"{pd_value:.2%}"
 # ---- end of your code ----
 
 check("pd_text", pd_text, "0.49%")
@@ -59,7 +61,7 @@ check("pd_text", pd_text, "0.49%")
 # rate_text: rate (already in percent) with 2 decimals and a "%" -> "8.83%"
 
 # ---- your code: part 5 ----
-rate_text = None
+rate_text = f"{rate:.2f}%"
 # ---- end of your code ----
 
 check("rate_text", rate_text, "8.83%")
@@ -68,7 +70,7 @@ check("rate_text", rate_text, "8.83%")
 # sentence: "Loan L000001 (investment): 1,044,231.30 EUR, stage 1"
 
 # ---- your code: part 6 ----
-sentence = None
+sentence = f"Loan {loan_id} (investment): {amount_bg.replace(",", ".").replace(" ", ",")} EUR, stage {stage}"
 # ---- end of your code ----
 
 check("sentence", sentence, "Loan L000001 (investment): 1,044,231.30 EUR, stage 1")
@@ -80,8 +82,8 @@ check("sentence", sentence, "Loan L000001 (investment): 1,044,231.30 EUR, stage 
 # "loan", "product" and "outstanding" in the same widths.
 
 # ---- your code: part 7 ----
-header = None
-line = None
+header = f"{'loan':<10}{'product':<13}{'outstanding':>15}"
+line = f"{loan_id:<10}{product:<13}{amount_bg.replace(",", ".").replace(" ", ","):>15}"
 # ---- end of your code ----
 
 check("header", header, "loan      product          outstanding")

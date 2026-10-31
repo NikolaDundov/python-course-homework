@@ -28,13 +28,13 @@ stage_text = "3"
 restructured_text = "False"
 
 # ---- your code: part 1 ----
-loan_id = None
-amount = None
-outstanding = None
-rate = None
-days_past_due = None
-stage = None
-restructured = None
+loan_id = loan_id_text.strip()
+amount = float(amount_text)
+outstanding = float(outstanding_text.replace(",", ".").replace(" ", ""))
+rate = float(rate_text)
+days_past_due = int(days_text)
+stage = int(stage_text)
+restructured = restructured_text == True
 # ---- end of your code ----
 
 check("loan_id", loan_id, "L000014")
@@ -49,7 +49,7 @@ check("restructured", restructured, False)
 # repaid: amount - outstanding, rounded to 2 decimals.
 
 # ---- your code: part 2 ----
-repaid = None
+repaid = round(amount - outstanding, 2 )
 # ---- end of your code ----
 
 check("repaid", repaid, 1813.25)
@@ -58,7 +58,7 @@ check("repaid", repaid, 1813.25)
 # is_non_performing: True when days_past_due is more than 90.
 
 # ---- your code: part 3 ----
-is_non_performing = None
+is_non_performing = days_past_due > 90
 # ---- end of your code ----
 
 check("is_non_performing", is_non_performing, True)

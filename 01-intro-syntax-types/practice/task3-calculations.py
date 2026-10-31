@@ -20,8 +20,8 @@ ACADEMIC_HOURS_PER_SESSION = 4
 BREAK_MINUTES_PER_SESSION = 20
 
 # ---- your code: part 1 ----
-sessions = None
-course_hours = None
+sessions = int(ACADEMIC_HOURS / ACADEMIC_HOURS_PER_SESSION)
+course_hours = ((sessions * BREAK_MINUTES_PER_SESSION) + ACADEMIC_HOURS * MINUTES_PER_ACADEMIC_HOUR)/60
 # ---- end of your code ----
 
 check("sessions", sessions, 16)
@@ -33,8 +33,8 @@ check("course_hours", course_hours, 48.0)
 days_past_due = 125
 
 # ---- your code: part 2 ----
-months = None
-days = None
+months = int(days_past_due/30)
+days = days_past_due % 30
 # ---- end of your code ----
 
 check("months", months, 4)
@@ -48,8 +48,8 @@ outstanding = 651927.30
 rate = 5.44
 
 # ---- your code: part 3 ----
-yearly_interest = None
-monthly_interest = None
+yearly_interest = round(outstanding * rate / 100,2)
+monthly_interest = round(yearly_interest/12,2)
 # ---- end of your code ----
 
 check("yearly_interest", yearly_interest, 35464.85)
@@ -65,8 +65,11 @@ loan_amount = 20000
 yearly_rate = 6
 years = 5
 
+monthly_rate = yearly_rate / 100 / 12
+n_payments = years * 12
+
 # ---- your code: part 4 ----
-payment = None
+payment = round((loan_amount* monthly_rate * (1 + monthly_rate) ** n_payments / ((1 + monthly_rate) ** n_payments - 1)),2)
 # ---- end of your code ----
 
 check("payment", payment, 386.66)
