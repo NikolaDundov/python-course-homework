@@ -27,14 +27,32 @@ stage_3_count = 0
 usd_count = 0
 max_days = 0
 largest_loan_id = None
+largest_loan = 0.0
 mortgage_rate = None
+mortgage_count = 0
+mortgae_interest = 0.0
 
 with open(DATA / "loans.csv", encoding="utf-8") as file:
     file.readline()                     # the header
     for line in file:
         (loan_id, client_id, product, currency, start_date, maturity_date,
          amount, outstanding, rate, days_past_due, stage) = line.strip().split(",")
-        # your code for each loan
+        count +=1
+        total_outstanding += float(outstanding)
+        if stage == "3":
+            stage_3_count+=1
+        if currency == "USD":
+            usd_count +=1
+        if max_days < int(days_past_due):
+            max_days = int(days_past_due)
+        if largest_loan < float(outstanding):
+            largest_loan = float(outstanding)
+            largest_loan_id = loan_id
+        if product == "mortgage":
+            mortgage_count +=1
+            mortgae_interest += float(rate)
+            mortgage_rate = round(mortgae_interest / mortgage_count, 2)
+    #print(mortgae_interest, mortgage_count)
 # ---- end of your code ----
 
 check("count", count, 400)
@@ -50,7 +68,14 @@ check("mortgage_rate", mortgage_rate, 8.04)
 #   first_stage_3      the loan_id of the first loan in stage 3 (str)
 
 # ---- your code: part 2 ----
-first_stage_3 = None
-# ---- end of your code ----
+with open(DATA / "loans.csv", encoding="utf-8") as file:
+    first_stage_3 = ""
+    for line in file:
+        (loan_id, client_id, product, currency, start_date, maturity_date,
+             amount, outstanding, rate, days_past_due, stage) = line.strip().split(",")
+        if stage == "3":
+            first_stage_3 = loan_id
+            break
+    # ---- end of your code ----
 
 check("first_stage_3", first_stage_3, "L000012")

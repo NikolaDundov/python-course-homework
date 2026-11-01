@@ -16,8 +16,13 @@ from check import check
 groups = ""
 for product in ["mortgage", "consumer", "credit_card", "overdraft",
                 "working_capital", "investment", "project_finance", "leasing"]:
-    # ---- your code: part 1 ----
-    group = None
+    match product:
+        case "mortgage" | "consumer" | "credit_card"| "overdraft":
+            group = "retail"
+        case  "working_capital" | "investment" | "project_finance":
+            group = "business"
+        case _:
+            group = "unknown"
     # ---- end of your code ----
     groups += f"{group};"
 
@@ -34,8 +39,12 @@ RATE = 1.95583
 
 results = ""
 for choice, amount in [("1", 100.0), ("2", 195.58), ("3", 50.0), ("1", 1000.0)]:
-    # ---- your code: part 2 ----
-    result = None
+    if choice == "1":
+        result = f"{amount * RATE:.2f}"
+    elif choice == "2":
+        result = f"{amount / RATE:.2f}"
+    else:
+        result = "wrong choice"
     # ---- end of your code ----
     results += f"{result};"
 

@@ -19,9 +19,24 @@ amount = 15000.0
 monthly_rate = 7.2 / 12 / 100
 payment = 300.0
 
-# ---- your code: part 1 ----
-months = None
-total_interest = None
+
+months = 0
+total_interest = 0
+total_paid = 0.0
+balance = amount
+
+while balance > 0:
+    balance = balance + balance * monthly_rate
+
+    if balance < payment:
+        total_paid += balance  
+        balance = 0
+    else:
+        balance -= payment
+        total_paid += payment
+
+    months += 1
+total_interest = round(total_paid - amount, 2)
 # ---- end of your code ----
 
 check("months", months, 60)
@@ -31,8 +46,12 @@ check("total_interest", total_interest, 2887.41)
 # A deposit of 1000 EUR earns 5% a year (deposit = deposit * 1.05 each year).
 #   years_to_double  after how many whole years is it 2000 or more? (int)
 
-# ---- your code: part 2 ----
-years_to_double = None
+deposit = 1000
+years_to_double = 0
+
+while deposit<=2000:
+    deposit = deposit*1.05
+    years_to_double +=1
 # ---- end of your code ----
 
 check("years_to_double", years_to_double, 15)
@@ -42,9 +61,14 @@ check("years_to_double", years_to_double, 15)
 # loans (use //). Each line looks like "stage 1 | ##### 58" and ends with "\n".
 # Build the whole text in chart, with a for loop over stage_counts.
 stage_counts = [(1, 323), (2, 58), (3, 19)]
-
-# ---- your code: part 3 ----
 chart = ""
+for stage, count in stage_counts:
+    if stage == 1:
+        chart += "stage 1 | " + "#"*int(count/10) + f" {count}" +"\n"
+    elif stage == 2:
+        chart += "stage 2 | " + "#"*int(count/10)+ f" {count}" + "\n"
+    elif stage == 3:
+        chart += "stage 3 | " + "#"*int(count/10)+ f" {count}" + "\n"
 # ---- end of your code ----
 
 check("chart", chart,

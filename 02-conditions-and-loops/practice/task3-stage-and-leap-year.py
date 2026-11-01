@@ -15,8 +15,12 @@ from check import check
 # Inside the loop, set stage (an int).
 stages = ""
 for days_past_due, rating in [(0, 1), (35, 3), (0, 7), (95, 2), (0, 10), (31, 6), (30, 6), (91, 10)]:
-    # ---- your code: part 1 ----
-    stage = None
+    if days_past_due > 90 or rating == 10:
+        stage = 3
+    elif days_past_due > 30 or rating >= 7:
+        stage = 2
+    else:
+        stage = 1
     # ---- end of your code ----
     stages += f"{stage};"
 
@@ -32,9 +36,18 @@ check("stages", stages, "1;2;2;3;3;2;1;3;")
 leap_years = ""
 day_counts = ""
 for year in [2024, 2025, 1900, 2000, 2100, 2028]:
-    # ---- your code: part 2 ----
-    is_leap = None
-    days = None
+    if year % 400 == 0:
+        is_leap = True
+        days = 366
+    elif year % 100 == 0:
+        is_leap = False
+        days = 365
+    elif year % 4 == 0:
+        is_leap = True
+        days = 366
+    else:
+        is_leap = False
+        days = 365
     # ---- end of your code ----
     leap_years += f"{is_leap};"
     day_counts += f"{days};"

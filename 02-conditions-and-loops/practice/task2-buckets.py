@@ -22,7 +22,17 @@ from check import check
 buckets = ""
 for days_past_due in [0, 1, 30, 31, 60, 61, 90, 91, 400]:
     # ---- your code: part 1 ----
-    bucket = None
+    if days_past_due == 0:
+        bucket = "current"
+    elif days_past_due > 0 and days_past_due <= 30:
+        bucket = "1-30"
+    elif days_past_due > 30 and days_past_due <= 60:
+        bucket = "31-60"
+    elif days_past_due > 60 and days_past_due <= 90:
+        bucket = "61-90"
+    else:
+        bucket = "90+"
+    #bucket = None
     # ---- end of your code ----
     buckets += f"{bucket};"
 
@@ -33,8 +43,12 @@ check("buckets", buckets, "current;1-30;1-30;31-60;31-60;61-90;61-90;90+;90+;")
 # this month (new). Set change to "increased", "decreased" or "no change".
 changes = ""
 for old, new in [(1000.0, 1200.0), (1000.0, 800.0), (1000.0, 1000.0)]:
-    # ---- your code: part 2 ----
-    change = None
+    if old < new:
+        change = "increased"
+    elif old == new:
+        change = "no change"
+    else:
+        change = "decreased"
     # ---- end of your code ----
     changes += f"{change};"
 
