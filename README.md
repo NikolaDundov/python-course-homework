@@ -1,12 +1,12 @@
 # Python for Data Analysts - Homework
 
 Practice tasks and homework for the course Python for Data Analysts. Every task
-checks your code and prints `OK` or `FAIL` for each check, and a final line such
-as `5 of 7 checks passed`.
+checks your code and prints `OK`, `FAIL` or `TODO` for each check, and a final
+line such as `5 of 7 checks passed`.
 
 The lectures: https://ivapopova-courses.github.io/Python-Data-Analysts-UniCredit-Slides/
 
-You need [Python](https://www.python.org/downloads/) 3.12 or 3.13, VS Code and Git.
+You need [Python](https://www.python.org/downloads/) 3.12 or newer, VS Code and Git.
 Step by step:
 https://ivapopova-courses.github.io/Python-Data-Analysts-UniCredit-Slides/how-to#practice-and-homework
 
@@ -53,7 +53,35 @@ python 01-intro-syntax-types/practice/task1-first-values.py
 python 01-intro-syntax-types/homework.py
 ```
 
-Edit only the parts of the files that the comments ask you to change.
+Edit only the parts of the files that the comments ask you to change: the lines
+between `# ---- your code ... ----` and `# ---- end of your code ----`.
+
+How to read the output:
+
+- a line `-- Part N: ... ---` starts the checks of each part of the task;
+- `OK` (green): your code gives the expected value;
+- `FAIL` (red): it does not - the lines `got:` and `expected:` under it show
+  what your code gave and what the check expects;
+- `TODO` (yellow): you have not written any code in this part yet;
+- at the end: one line per part, then `N of M checks passed`.
+
+In a predict task (`*predict*.py`) you replace each `"?"` with the value you
+expect. It prints `OK`, `WRONG` or `TODO` (not answered yet) - never the real
+result, so run it as often as you like.
+
+## The notebooks (optional)
+
+Some sessions also have a notebook, `NN-topic/notebook.ipynb`: short extra tasks
+on the same topics, for practice in Jupyter. Open it in VS Code (or in JupyterLab:
+`jupyter lab` in the terminal, with the virtual environment active) and choose
+the `.venv` kernel (**Select Kernel** > **Python Environments**).
+
+- Run the cells from the top with `Shift+Enter` - the **Setup** cell first.
+- Each part has its description, a cell for your code (replace each `None`), and a
+  cell with the checks: `OK`, `FAIL` or `TODO`, as in the `.py` tasks.
+- Some parts show the **expected output**: compare it with what your cell prints.
+- The last cell prints how many checks are OK. Before you trust it: **Restart**
+  the kernel and **Run All**.
 
 ## Save your work
 
@@ -68,7 +96,7 @@ git push
 New lecture folders are added before each session. Commit your work first, then:
 
 ```bash
-git pull upstream main
+git pull --no-rebase --no-edit upstream main
 git push
 ```
 
@@ -78,11 +106,14 @@ conflict with your work.
 ## Layout
 
 ```text
-check.py                       prints OK / FAIL and the final summary
+check.py                       prints OK / FAIL / TODO and the final summary
+nbcheck.py                     the same checks for the notebooks
+.starters.json                 the starter code of each task (check.py uses it for TODO)
 requirements.txt               the libraries of the course (pip install -r requirements.txt)
 data/                          the made-up sample data (loans, clients, rating scale)
 NN-topic/practice/taskN-*.py   practice tasks of lecture NN
 NN-topic/homework.py           homework of lecture NN
+NN-topic/notebook.ipynb        optional notebook of lecture NN (some lectures)
 ```
 
 What is in the data files: https://ivapopova-courses.github.io/Python-Data-Analysts-UniCredit-Slides/sample-data
