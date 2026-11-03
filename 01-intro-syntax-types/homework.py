@@ -25,12 +25,12 @@ report_year_text = "2026"
 # days_past_due, maturity_year, report_year -> int
 
 # ---- your code: part 1 ----
-amount = None
-outstanding = None
-rate = None
-days_past_due = None
-maturity_year = None
-report_year = None
+amount = float(amount_text.replace(",",".").replace(" ",""))
+outstanding = float(outstanding_text.replace(",",".").replace(" ",""))
+rate = float(rate_text.replace(",","."))
+days_past_due = int(days_text)
+maturity_year = int(maturity_year_text)
+report_year = int(report_year_text)
 # ---- end of your code ----
 
 check("amount", amount, 1977400.0)
@@ -53,12 +53,14 @@ check("report_year", report_year, 2026)
 #                    and the days left
 
 # ---- your code: part 2 ----
-repaid_share = None
-months_left = None
-monthly_payment = None
-yearly_interest = None
-past_due_months = None
-past_due_days = None
+repaid_share = (amount - outstanding) / amount
+months_left = (maturity_year - report_year )*12
+n = months_left
+r = rate / 12 / 100
+monthly_payment = round(outstanding * r / (1 - (1 + r) ** -n),2)
+yearly_interest = round(Decimal((outstanding * rate) / 100),2)
+past_due_months = int(days_past_due / 30)
+past_due_days = days_past_due % 30
 # ---- end of your code ----
 
 check("repaid_share", repaid_share, 0.6703108627490644)
@@ -78,7 +80,36 @@ check("past_due_days", past_due_days, 5)
 # "past due" is the text "1 m 5 d" - months, "m", days, "d".
 
 # ---- your code: part 3 ----
-card = None
+
+repaid_percentage = f"{repaid_share * 100:.1f}%"
+rate_formatted = f"{rate:.2f}%"
+past_due_formatted = f"{past_due_months} m {past_due_days} d"
+repaid_pct = f"{repaid_share * 100:.1f}%"
+rate_pct = f"{rate:.2f}%"
+past_due_str = f"{past_due_months} m {past_due_days} d"
+
+card = "\n".join([
+    f"Loan {loan_id} ({product})",
+    f"{'amount':<15}{amount:15,.2f}",
+    f"{'outstanding':<15}{outstanding:15,.2f}",
+    f"{'repaid':<15}{repaid_pct:>15}",
+    f"{'rate':<15}{rate_pct:>15}",
+    f"{'interest/year':<15}{yearly_interest:15,.2f}",
+    f"{'payment/month':<15}{monthly_payment:15,.2f}",
+    f"{'past due':<15}{past_due_str:>15}"
+])
+
+# card = f"""
+#       Loan {loan_id} ({product})
+#       {'amount':<15}{amount:15,.2f}
+#       {'outstanding':<15}{outstanding:15,.2f}
+#       {'repaid':<15}{repaid_pct:>15}
+#       {'rate':<15}{rate_pct:>15}
+#       {'interest/year':<15}{yearly_interest:15,.2f}
+#       {'payment/month':<15}{monthly_payment:15,.2f}
+#       {'past due':<15}{past_due_str:>15}"""
+
+# print(card)
 # ---- end of your code ----
 
 check("card", card,
