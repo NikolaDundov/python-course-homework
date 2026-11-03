@@ -114,7 +114,7 @@
  "04-functions/practice/task2-defaults-keywords.py": [
   "8391247c4983",
   "57074f225172",
-  "c402d74cca66",
+  "d1f49a0d354d",
   "c7b0dc2ff890"
  ],
  "04-functions/practice/task3-args-and-tuples.py": [
@@ -145,8 +145,8 @@
   "6f377b39bc09",
   "0b882c83039a",
   "27de8978ae9a",
-  "63bd7fed483a",
-  "da9326fbe99b",
+  "8ef348352cef",
+  "15c2d6c017b0",
   "dec03944936d"
  ],
  "05-lists-advanced/practice/task1-comprehensions.py": [
@@ -168,18 +168,14 @@
  "05-lists-advanced/practice/task4-sort-top-n.py": [
   "54ace8afa09c",
   "52caf70c4b43",
-  "06f6c1aa9318",
   "2ea76287d545",
-  "c58c5df1d574",
   "d266f7645c26"
  ],
  "05-lists-advanced/practice/task5-zip-columns.py": [
   "6ba8172e474e",
-  "b390f9172916",
   "1e8011190b38",
   "d1c714b4005a",
-  "0c77775ae66e",
-  "7049125fc912"
+  "a0f6d3e42d16"
  ],
  "05-lists-advanced/practice/task6-table-of-rows.py": [
   "c2ebebac55e6",
