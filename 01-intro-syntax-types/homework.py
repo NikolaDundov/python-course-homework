@@ -109,7 +109,7 @@ card = "\n".join([
 #       {'payment/month':<15}{monthly_payment:15,.2f}
 #       {'past due':<15}{past_due_str:>15}"""
 
-# print(card)
+print(card)
 # ---- end of your code ----
 
 check("card", card,
