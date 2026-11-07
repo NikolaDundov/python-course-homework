@@ -19,10 +19,20 @@ from check import check
 #   6. sort watch from the largest id to the smallest
 # backup must still be the list from the start.
 watch = ["L000014", "L000025", "L000012"]
+watch_copy = watch.copy()
 
 # ---- your code: part 1 ----
-backup = None
-removed = None
+backup = watch.copy()
+
+watch.append("L000059")
+watch.insert(0,"L000003")
+watch.remove("L000025")
+watch.extend(["L000077", "L000103"])
+
+removed = watch.pop()
+watch.sort(reverse=True)
+print(watch)
+
 # ---- end of your code ----
 
 check("watch", watch, ["L000077", "L000059", "L000014", "L000012", "L000003"])
@@ -35,8 +45,8 @@ check("backup", backup, ["L000014", "L000025", "L000012"])
 #   position    the index of "L000059" in watch
 
 # ---- your code: part 2 ----
-size = None
-position = None
+size = len(watch)
+position = watch.index("L000059" )
 # ---- end of your code ----
 
 check("size", size, 5)
@@ -48,7 +58,7 @@ check("position", position, 1)
 names = ["Maria", "Ivan", "Asen"]
 
 # ---- your code: part 3 ----
-names_sorted = None
+names_sorted = sorted(names)
 # ---- end of your code ----
 
 check("names_sorted", names_sorted, ["Asen", "Ivan", "Maria"])

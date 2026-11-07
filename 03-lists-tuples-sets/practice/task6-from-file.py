@@ -25,11 +25,38 @@ from check import check, DATA
 # Collect also the client_ids of all loans in a set - you need it in part 2.
 
 # ---- your code: part 1 ----
-products = None
+products = set()
+products_unsorted = set()
 stage_3_ids = []
-first_five = None
-late_clients = None
+first_five = []
+late_clients = set()
+client_id_EUR = set()
+client_id_USD = set()
 both_currencies = set()
+all_client_ids = set()
+
+with open(DATA / "loans.csv", encoding="utf-8") as file:
+    file.readline()                     # the header
+    for line in file:
+            (loan_id, client_id, product, currency, start_date, maturity_date,
+         amount, outstanding, rate, days_past_due, stage) = line.strip().split(",")
+            products_unsorted.add(product)
+            all_client_ids.add(client_id)
+            if stage == "3":
+                  stage_3_ids.append(loan_id)
+            if int(days_past_due) > 90:
+                  late_clients.add(client_id)
+            if currency == "USD":
+                  client_id_USD.add(client_id)
+            if currency == "EUR":
+                  client_id_EUR.add(client_id)
+
+
+products = sorted(list(products_unsorted))
+first_five = stage_3_ids[:5]
+both_currencies = client_id_EUR & client_id_USD
+
+
 # ---- end of your code ----
 
 check("products", products, ["consumer", "credit_card", "investment", "mortgage", "overdraft",
@@ -50,8 +77,27 @@ check('"C0132" in both_currencies', "C0132" in both_currencies, True)
 #                    the client_ids of the loans from part 1
 
 # ---- your code: part 2 ----
-regions = None
+
+regions_set = set()
+clients_with_loans = set()
 without_loans = None
+
+with open(DATA / "clients.csv", encoding="utf-8") as file:
+    file.readline()                     # the header
+    for line in file:
+            (client_id, segment, region, industry, rating,client_since) = line.strip().split(",")
+            regions_set.add(region)
+            clients_with_loans.add(client_id)
+
+
+
+regions = sorted(list(regions_set))
+print("All clients: ", len(all_client_ids))
+print("Clients with loans: ", len(clients_with_loans))
+without_loans = sorted(list(clients_with_loans - all_client_ids))
+
+      
+
 # ---- end of your code ----
 
 check("regions", regions, ["Burgas", "Pleven", "Plovdiv", "Ruse", "Sofia", "Stara Zagora", "Varna"])

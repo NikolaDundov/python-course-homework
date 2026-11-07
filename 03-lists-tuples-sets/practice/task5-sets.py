@@ -19,11 +19,11 @@ august = {"C0001", "C0002", "C0003", "C0005", "C0008", "C0013"}
 september = {"C0002", "C0003", "C0005", "C0013", "C0021", "C0034"}
 
 # ---- your code: part 1 ----
-new_clients = None
-closed_clients = None
-stayed = None
-all_count = None
-changed = None
+new_clients = september - august
+closed_clients = august - september
+stayed = august & september
+all_count = len(august | september)
+changed = new_clients | closed_clients
 # ---- end of your code ----
 
 check("new_clients", new_clients, {"C0021", "C0034"})
@@ -42,9 +42,9 @@ required = {"id_card", "income_statement", "collateral_valuation", "insurance"}
 submitted = {"id_card", "insurance", "bank_statement", "income_statement"}
 
 # ---- your code: part 2 ----
-missing = None
-extra = None
-complete = None
+missing = required - submitted
+extra = submitted - required
+complete = required <= submitted
 # ---- end of your code ----
 
 check("missing", missing, {"collateral_valuation"})
@@ -59,8 +59,8 @@ check("complete", complete, False)
 products = ["consumer", "mortgage", "consumer", "overdraft", "mortgage", "credit_card", "consumer"]
 
 # ---- your code: part 3 ----
-distinct_count = None
-distinct_sorted = None
+distinct_count = len(set(products))
+distinct_sorted = sorted(set(products))
 # ---- end of your code ----
 
 check("distinct_count", distinct_count, 4)

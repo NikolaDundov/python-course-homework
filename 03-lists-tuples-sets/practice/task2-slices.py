@@ -15,8 +15,8 @@ from check import check
 loan_id = "L000123"
 
 # ---- your code: part 1 ----
-prefix = None
-number = None
+prefix = loan_id[0]
+number = int(loan_id[1:])
 # ---- end of your code ----
 
 check("prefix", prefix, "L")
@@ -29,9 +29,10 @@ check("number", number, 123)
 report_date = "2026-09-30"
 
 # ---- your code: part 2 ----
-year = None
-month = None
-day = None
+year_num = report_date.split('-')
+year = int(year_num[0])
+month = int(year_num[1])
+day = int(year_num[2])
 # ---- end of your code ----
 
 check("year", year, 2026)
@@ -48,15 +49,16 @@ check("day", day, 30)
 #   second_half     July to December
 #   without_edges   all months except the first two and the last two
 #   newest_first    all months, from December back to January
+
 monthly = [510.0, 505.5, 498.2, 501.0, 495.4, 490.0, 488.8, 480.1, 476.3, 470.0, 468.9, 460.2]
 
 # ---- your code: part 3 ----
-q1 = None
-q4 = None
-quarter_ends = None
-second_half = None
-without_edges = None
-newest_first = None
+q1 = monthly[0:3]
+q4 = monthly[9:12]
+quarter_ends = monthly[2:12:3]
+second_half = monthly[6:]
+without_edges = monthly[2:10]
+newest_first = monthly[::-1]
 # ---- end of your code ----
 
 check("q1", q1, [510.0, 505.5, 498.2])
@@ -72,8 +74,8 @@ check("newest_first", newest_first, [460.2, 468.9, 470.0, 476.3, 480.1, 488.8, 4
 # change: December minus January (a float).
 
 # ---- your code: part 4 ----
-last_month = None
-change = None
+last_month = monthly[-1]
+change = float(monthly[-1] - monthly[0])
 # ---- end of your code ----
 
 check("last_month", last_month, 460.2)
@@ -86,7 +88,11 @@ check("change", change, -49.8)
 team = "Strategic Risk Analytics"
 
 # ---- your code: part 5 ----
-initials = ""
+l = team.split(" ")
+initials =""
+for i in l:
+    initials += i[0].upper()
+print(initials)
 # ---- end of your code ----
 
 check("initials", initials, "SRA")

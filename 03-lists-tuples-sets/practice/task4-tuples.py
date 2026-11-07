@@ -15,10 +15,12 @@ from check import check
 record = ("L000002", "C0132", "investment", "EUR", 651927.30, 5.44, 35)
 
 # ---- your code: part 1 ----
-loan_id = None
-outstanding = None
-days_past_due = None
-interest = None
+
+loan_id = record[0]
+outstanding = float(record[4])
+days_past_due = int(record[-1])
+rate = float(record[-2])
+interest = round(outstanding * rate / 100 , 2)
 # ---- end of your code ----
 
 check("loan_id", loan_id, "L000002")
@@ -32,7 +34,8 @@ check("interest", interest, 35464.85)
 # tuple, made with a slice and + (a tuple cannot change).
 
 # ---- your code: part 2 ----
-new_record = None
+new_record = record[:len(record)-1] +(40,)
+
 # ---- end of your code ----
 
 check("new_record", new_record, ("L000002", "C0132", "investment", "EUR", 651927.30, 5.44, 40))
@@ -43,7 +46,7 @@ check("record (not changed)", record, ("L000002", "C0132", "investment", "EUR", 
 # single: a tuple with one item, the string "L000002".
 
 # ---- your code: part 3 ----
-single = None
+single = ("L000002",)
 # ---- end of your code ----
 
 check("single", single, ("L000002",))
@@ -67,11 +70,20 @@ loans = [
 ]
 
 # ---- your code: part 4 ----
-total = None
-late_ids = None
-ids = None
-amounts = None
-last_product = None
+late_ids = []
+ids = []
+amounts = []
+total = 0.0
+
+for l in loans:
+    for_lid, prod, amount, days_in_loans = l
+    total += amount
+    ids.append(for_lid)
+    amounts.append(amount)
+    if days_in_loans > 0:
+        late_ids.append(for_lid)
+
+last_product = loans[-1][1]
 # ---- end of your code ----
 
 check("total", total, 1711089.6)
