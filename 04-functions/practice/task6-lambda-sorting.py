@@ -22,7 +22,10 @@ loans = [
 #                 (sorted with key=lambda and reverse=True, then collect the ids)
 
 # ---- your code: part 1 ----
-largest_first = None
+largest_first = []
+for l in sorted(loans, key=lambda loan: loan[2], reverse=True):
+    largest_first.append(l[0])
+
 # ---- end of your code ----
 
 check("largest_first", largest_first, ["L000001", "L000002", "L000004", "L000005", "L000003"])
@@ -33,6 +36,8 @@ check("largest_first", largest_first, ["L000001", "L000002", "L000004", "L000005
 
 # ---- your code: part 2 ----
 highest_rate = None
+for l in sorted(loans, key=lambda loan: loan[3]):
+    highest_rate = (l[0])
 # ---- end of your code ----
 
 check("highest_rate", highest_rate, "L000005")
@@ -43,7 +48,10 @@ check("highest_rate", highest_rate, "L000005")
 #                 loan_id (a key that returns a tuple)
 
 # ---- your code: part 3 ----
-by_product = None
+by_product = []
+for l in sorted(loans, key=lambda loan: (loan[1], loan[0])):
+    by_product.append(l[0])
+
 # ---- end of your code ----
 
 check("by_product", by_product, ["L000003", "L000005", "L000001", "L000002", "L000004"])
@@ -56,7 +64,8 @@ check("by_product", by_product, ["L000003", "L000005", "L000001", "L000002", "L0
 short_ids = ["L12", "L3", "L100", "L25"]
 
 # ---- your code: part 4 ----
-ids_by_number = None
+
+ids_by_number = sorted(short_ids, key=lambda id: int(id[1:]))
 # ---- end of your code ----
 
 check("ids_by_number", ids_by_number, ["L3", "L12", "L25", "L100"])
@@ -69,7 +78,11 @@ check("ids_by_number", ids_by_number, ["L3", "L12", "L25", "L100"])
 
 # ---- your code: part 5 ----
 def unique_in_order(items):
-    pass
+    list_items = []
+    for i in items:
+        if i not in list_items:
+            list_items.append(i)
+    return list_items
 # ---- end of your code ----
 
 check("unique_in_order([3, 1, 3, 2, 1])", unique_in_order([3, 1, 3, 2, 1]), [3, 1, 2])
@@ -82,7 +95,12 @@ check('unique_in_order(["EUR", "USD", "EUR"])', unique_in_order(["EUR", "USD", "
 
 # ---- your code: part 6 ----
 def loans_over(loans, minimum):
-    pass
+    found_loans = []
+    for loan in loans:
+        if float(loan[2]) > minimum:
+            found_loans.append(loan[0])
+
+    return found_loans
 # ---- end of your code ----
 
 check("loans_over(loans, 5000)", loans_over(loans, 5000), ["L000001", "L000002", "L000004"])

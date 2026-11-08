@@ -15,7 +15,10 @@ from check import check
 
 # ---- your code: part 1 ----
 def annuity_payment(amount, yearly_rate, years=5):
-    pass
+    r = yearly_rate / 12 / 100 
+    n = years * 12
+    return round(amount * r / (1 - (1 + r) ** -n),2)
+    
 # ---- end of your code ----
 
 check("annuity_payment(20000, 6)", annuity_payment(20000, 6), 386.66)
@@ -29,7 +32,7 @@ check("annuity_payment(20000, 6, 10)", annuity_payment(20000, 6, 10), 222.04)
 
 # ---- your code: part 2 ----
 def expected_loss(pd_value, ead, lgd=0.45):
-    pass
+    return round((pd_value * lgd * ead), 2)
 # ---- end of your code ----
 
 check("expected_loss(0.02, 100000)", expected_loss(0.02, 100000), 900.0)
@@ -46,7 +49,8 @@ check("expected_loss(0.02, 100000)", expected_loss(0.02, 100000), 900.0)
 
 # ---- your code: part 3 ----
 def format_amount(amount, decimals=2):
-    pass
+    result = f"{amount:,.{decimals}f}"
+    return result.replace(",", " ").replace(".", ",")
 # ---- end of your code ----
 
 check("format_amount(1044231.3)", format_amount(1044231.3), "1 044 231,30")
@@ -59,10 +63,17 @@ check("format_amount(1044231.3, decimals=0)", format_amount(1044231.3, decimals=
 
 # ---- your code: part 4 ----
 # the payment of 50000 at 4.5% for 20 years - all three as keyword arguments
-mortgage_payment = None
+def mortgage_payment(amount, yearly_rate, years):
+    r = yearly_rate / 12 / 100
+    return round(amount * r / (1 - (1 + r) ** - (years * 12)),2) 
+#mortgage_payment(amount=50000, yearly_rate=4.5, years=20)
+
 # the expected loss of PD 0.03 and EAD 200000 with LGD 0.25 (a keyword argument)
-secured_el = None
+def secured_el(pd_value, ead, lgd):
+    return (pd_value * lgd * ead)
+
+#secured_el(pd_value=0.03, ead=200000, lgd=0.25)
 # ---- end of your code ----
 
-check("mortgage_payment", mortgage_payment, 316.32)
-check("secured_el", secured_el, 1500.0)
+check("mortgage_payment", mortgage_payment(amount=50000, yearly_rate=4.5, years=20), 316.32)
+check("secured_el", secured_el(pd_value=0.03, ead=200000, lgd=0.25), 1500.0)

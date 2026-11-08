@@ -17,7 +17,7 @@ from check import check
 
 # ---- your code: part 1 ----
 def interest(outstanding, rate):
-    pass
+    return outstanding * rate / 100 
 # ---- end of your code ----
 
 check("interest(1000, 5)", interest(1000, 5), 50.0)
@@ -30,7 +30,7 @@ check("interest(651927.30, 5.44)", interest(651927.30, 5.44), 35464.84512)
 
 # ---- your code: part 2 ----
 def repaid_share(amount, outstanding):
-    pass
+    return (amount - outstanding) / amount
 # ---- end of your code ----
 
 check("repaid_share(20000, 15000)", repaid_share(20000, 15000), 0.25)
@@ -42,7 +42,7 @@ check("repaid_share(800, 800)", repaid_share(800, 800), 0.0)
 
 # ---- your code: part 3 ----
 def is_late(days_past_due):
-    pass
+    return days_past_due > 0
 # ---- end of your code ----
 
 check("is_late(0)", is_late(0), False)
@@ -54,7 +54,7 @@ check("is_late(35)", is_late(35), True)
 
 # ---- your code: part 4 ----
 def monthly_rate(yearly_percent):
-    pass
+    return yearly_percent / 12 / 100
 # ---- end of your code ----
 
 check("monthly_rate(6)", monthly_rate(6), 0.005)
@@ -66,7 +66,7 @@ check("monthly_rate(12)", monthly_rate(12), 0.01)
 
 # ---- your code: part 5 ----
 def is_even(number):
-    pass
+    return bool(number % 2 == 0)
 # ---- end of your code ----
 
 check("is_even(4)", is_even(4), True)

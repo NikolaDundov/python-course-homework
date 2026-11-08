@@ -14,7 +14,22 @@ from check import check
 
 # ---- your code: part 1 ----
 def total(*amounts):
-    pass
+    if len(amounts) == 0:
+        return 0
+    
+    sum = 0.0
+    sum_int = 0
+
+    for i in amounts:
+        if type(i) == "int":
+            sum_int += i
+        else:
+            sum += i
+
+    if sum_int > sum:
+        return sum_int
+    else:
+        return sum
 # ---- end of your code ----
 
 check("total(1044231.30, 651927.30, 644.25)", total(1044231.30, 651927.30, 644.25), 1696802.85)
@@ -28,7 +43,13 @@ check("total()", total(), 0)
 
 # ---- your code: part 2 ----
 def product(*numbers):
-    pass
+    result = 1
+    if len(numbers) == 1:
+        return 1
+    else:
+        for i in numbers:
+            result *= i
+    return result
 # ---- end of your code ----
 
 check("product(2, 3, 4)", product(2, 3, 4), 24)
@@ -41,7 +62,7 @@ check("product()", product(), 1)
 
 # ---- your code: part 3 ----
 def min_max_average(*values):
-    pass
+     return min(values), max(values), sum(values) / len(values)
 # ---- end of your code ----
 
 check("min_max_average(1, 2, 6)", min_max_average(1, 2, 6), (1, 6, 3.0))
@@ -52,7 +73,8 @@ check("min_max_average(1, 2, 6)", min_max_average(1, 2, 6), (1, 6, 3.0))
 # lowest, highest, average.
 
 # ---- your code: part 4 ----
-lowest = highest = average = None
+
+lowest, highest ,average = min_max_average(5.44, 8.83, 4.79)
 # ---- end of your code ----
 
 check("lowest", lowest, 4.79)
@@ -66,7 +88,12 @@ check("average", average, 6.85)
 
 # ---- your code: part 5 ----
 def split_days(days_past_due):
-    pass
+    t = ()
+    months = days = 0
+    months = int(days_past_due / 30)
+    days = days_past_due % 30
+    t+=(months, days)
+    return t
 # ---- end of your code ----
 
 check("split_days(125)", split_days(125), (4, 5))
@@ -80,7 +107,12 @@ check("split_days(30)", split_days(30), (1, 0))
 
 # ---- your code: part 6 ----
 def count_over(*values, limit=90):
-    pass
+    counter = 0
+    for i in values:
+        if i > limit:
+            counter += 1
+    return counter
+
 # ---- end of your code ----
 
 check("count_over(0, 35, 120, 200, 5)", count_over(0, 35, 120, 200, 5), 2)

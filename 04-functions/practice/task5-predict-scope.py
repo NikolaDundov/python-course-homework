@@ -21,15 +21,15 @@ def f():
     return x
 
 
-check("f()", f(), "?")
-check("x after f()", x, "?")
+check("f()", f(), 20)
+check("x after f()", x, 10)
 
 
 def g():
     return x * 2
 
 
-check("g()", g(), "?")
+check("g()", g(), 20)
 
 
 def k(n):
@@ -38,8 +38,8 @@ def k(n):
 
 
 m = 5
-check("k(m)", k(m), "?")
-check("m after k(m)", m, "?")
+check("k(m)", k(m), 6)
+check("m after k(m)", m, 5)
 
 
 def h(items):
@@ -48,31 +48,31 @@ def h(items):
 
 
 numbers = [1, 2, 3]
-check("h(numbers)", h(numbers), "?")
-check("numbers after h(numbers)", numbers, "?")
+check("h(numbers)", h(numbers), 4)
+check("numbers after h(numbers)", numbers, [1,2,3,4])
 
 
 def no_return():
     total = 1
 
 
-check("no_return()", no_return(), "?")
+check("no_return()", no_return(), None)
 
 
 def add(a, b=10):
     return a + b
 
 
-check("add(1)", add(1), "?")
-check("add(1, 2)", add(1, 2), "?")
-check("add(b=1, a=2)", add(b=1, a=2), "?")
+check("add(1)", add(1), 11)
+check("add(1, 2)", add(1, 2), 3)
+check("add(b=1, a=2)", add(b=1, a=2), 3)
 
 
 def first_last(*args):
     return args[0], args[-1]
 
 
-check("first_last(1, 2, 3)", first_last(1, 2, 3), "?")
+check("first_last(1, 2, 3)", first_last(1, 2, 3), (1,3))
 
 count = 0
 
@@ -84,11 +84,11 @@ def increment():
 
 increment()
 increment()
-check("count", count, "?")
+check("count", count, 2)
 
 
 def apply(func, value):
     return func(value)
 
 
-check("apply(len, 'L000001')", apply(len, "L000001"), "?")
+check("apply(len, 'L000001')", apply(len, "L000001"), 7)

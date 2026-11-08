@@ -18,8 +18,17 @@ from check import check, DATA
 
 # ---- your code: part 1 ----
 def read_loans(path):
+    loans = []
+    loan = []
+    with open(path, encoding="utf-8") as file:
+        file.readline()                     # the header
+        for line in file:
+            (loan_id, client_id, product, _, _, _,_, outstanding, _, days_past_due, 
+             stage) = line.strip().split(",")
+            loan = (loan_id, client_id,product, float(outstanding), int(days_past_due), int(stage))
+            loans.append(loan)
     """The loans of the file: (loan_id, client_id, product, outstanding, days_past_due, stage)."""
-    return []
+    return loans
 # ---- end of your code ----
 
 loans = read_loans(DATA / "loans.csv")
@@ -34,7 +43,15 @@ check("loans[1:2]", loans[1:2], [("L000002", "C0132", "investment", 651927.3, 35
 # ---- your code: part 2 ----
 def read_ratings(path):
     """The clients of the file: (client_id, rating)."""
-    return []
+    clients_list = []
+    current = []
+    with open(path, encoding="utf-8") as file:
+        file.readline()                     # the header
+        for line in file:
+            (client_id, segment, region, industry, rating, client_since) = line.strip().split(",")
+            current = (client_id, int(rating))
+            clients_list.append(current)
+    return clients_list
 # ---- end of your code ----
 
 ratings = read_ratings(DATA / "clients.csv")
@@ -49,7 +66,15 @@ check("ratings[:1]", ratings[:1], [("C0001", 3)])
 # ---- your code: part 3 ----
 def read_rating_scale(path):
     """The rating scale: (rating, grade, pd_min, pd_max)."""
-    return []
+    ratings = []
+    current = []
+    with open(path, encoding="utf-8") as file:
+        file.readline()                     # the header
+        for line in file:
+            (rating, grade,	pd_min,	pd_max,	description) = line.strip().split(",")
+            current = (int(rating), grade, float(pd_min), float(pd_max))
+            ratings.append(current)
+    return ratings
 # ---- end of your code ----
 
 scale = read_rating_scale(DATA / "rating_scale.csv")
@@ -64,7 +89,15 @@ check("scale[3:4]", scale[3:4], [(4, "BBB", 0.0025, 0.006)])
 # ---- your code: part 4 ----
 def pd_for_rating(rating, scale):
     """The middle of the PD band of the rating, or None."""
-    pass
+    ratings = []
+    with open(DATA / "rating_scale.csv", encoding="utf-8") as file:
+        file.readline()                     # the header
+        for line in file:
+            (rating_str, grade,	pd_min,	pd_max,	description) = line.strip().split(",")
+            if rating == int(rating_str):
+                pd = float(pd_min) + float(pd_max)
+                return pd / 2
+            
 # ---- end of your code ----
 
 check("pd_for_rating(4, scale)", pd_for_rating(4, scale), 0.00425)

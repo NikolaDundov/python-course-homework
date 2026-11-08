@@ -16,7 +16,14 @@ from check import check
 
 # ---- your code: part 1 ----
 def dpd_bucket(days_past_due):
-    pass
+    if int(days_past_due) == 0:
+        return "current"
+    if int(days_past_due) > 0 and int(days_past_due) <= 30:
+        return "1-30"
+    if int(days_past_due) > 30 and int(days_past_due) <= 90:
+            return "31-90"
+    if int(days_past_due) > 90:
+         return "90+"
 # ---- end of your code ----
 
 check("dpd_bucket(0)", dpd_bucket(0), "current")
@@ -33,7 +40,11 @@ check("dpd_bucket(91)", dpd_bucket(91), "90+")
 
 # ---- your code: part 2 ----
 def stage(days_past_due, rating):
-    pass
+    if days_past_due >= 90 or rating == 10:
+        return 3
+    if days_past_due > 30 or rating >= 7:
+         return 2
+    return 1
 # ---- end of your code ----
 
 check("stage(0, 1)", stage(0, 1), 1)
@@ -50,7 +61,10 @@ check("stage(91, 2)", stage(91, 2), 3)
 
 # ---- your code: part 3 ----
 def grade(rating):
-    pass
+    if rating > 10:
+         return "unknown"
+    l = ["AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"]
+    return l[rating-1]
 # ---- end of your code ----
 
 check("grade(1)", grade(1), "AAA")
@@ -66,7 +80,9 @@ check("grade(11)", grade(11), "unknown")
 
 # ---- your code: part 4 ----
 def is_investment_grade(rating):
-    pass
+    if rating >= 1 and rating <=4:
+         return True
+    return False
 # ---- end of your code ----
 
 check("is_investment_grade(4)", is_investment_grade(4), True)
@@ -81,7 +97,13 @@ check("is_investment_grade(5)", is_investment_grade(5), False)
 
 # ---- your code: part 5 ----
 def product_group(product):
-    pass
+    retail = ("mortgage" , "consumer", "credit_card", "overdraft")
+    business = ("working_capital", "investment", "project_finance")
+    if product in retail:
+         return "retail"
+    elif product in business:
+         return "business"
+    return "unknown"
 # ---- end of your code ----
 
 check('product_group("overdraft")', product_group("overdraft"), "retail")
