@@ -141,13 +141,13 @@
   "1bfccb922d0d"
  ],
  "05-lists-advanced/homework.py": [
-  "45aebfc13153",
+  "2cd83616aaaf",
+  "6ce38663eabb",
   "6f377b39bc09",
   "0b882c83039a",
-  "27de8978ae9a",
-  "8ef348352cef",
-  "15c2d6c017b0",
-  "dec03944936d"
+  "c3a8ad451b88",
+  "42cf1f7573ac",
+  "862950162b6b"
  ],
  "05-lists-advanced/practice/task1-comprehensions.py": [
   "deb810b5d218",
@@ -159,11 +159,38 @@
   "56269335ac8d",
   "4a8d7f94a3b1"
  ],
+ "05-lists-advanced/practice/task1-list-methods.py": [
+  "da39a3ee5e6b",
+  "3e386dece67d",
+  "da39a3ee5e6b",
+  "a581dbcedc91",
+  "da39a3ee5e6b",
+  "b34408bb9664",
+  "a8b4492aa83f",
+  "8f948a514021"
+ ],
+ "05-lists-advanced/practice/task2-comprehensions.py": [
+  "deb810b5d218",
+  "8f6a36894d44",
+  "c70ef124f58d",
+  "bf8a96ef7f7d",
+  "4a8d7f94a3b1",
+  "a1543ba33490",
+  "da39a3ee5e6b"
+ ],
  "05-lists-advanced/practice/task3-checks-extremes.py": [
   "322a8c2ebc24",
   "3f140a20b511",
   "182eb4b223ff",
   "51980e93e692"
+ ],
+ "05-lists-advanced/practice/task4-generators.py": [
+  "89e2a573ca7a",
+  "e30770099633",
+  "cd20ec78adab",
+  "9e90ad533d50",
+  "1b796b3472d0",
+  "7842a9199b48"
  ],
  "05-lists-advanced/practice/task4-sort-top-n.py": [
   "54ace8afa09c",
@@ -176,6 +203,20 @@
   "1e8011190b38",
   "d1c714b4005a",
   "a0f6d3e42d16"
+ ],
+ "05-lists-advanced/practice/task5-zip.py": [
+  "6ba8172e474e",
+  "7b0a9f577539",
+  "b62e4891e677",
+  "3ca46b58f218",
+  "7dfa6978c61e"
+ ],
+ "05-lists-advanced/practice/task6-clean-a-list.py": [
+  "5deb911450a7",
+  "376ab584d251",
+  "da39a3ee5e6b",
+  "bb0d3ee42024",
+  "1869a161879d"
  ],
  "05-lists-advanced/practice/task6-table-of-rows.py": [
   "c2ebebac55e6",
