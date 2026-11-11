@@ -113,7 +113,15 @@ check("pd_for_rating(11, scale)", pd_for_rating(11, scale), None)
 # ---- your code: part 5 ----
 def rating_of(client_id, ratings):
     """The rating of the client, or None."""
-    pass
+    clients_list = []
+    current = []
+    with open(DATA / "clients.csv", encoding="utf-8") as file:
+        file.readline()                     # the header
+        for line in file:
+            (client_id_input, segment, region, industry, rating, client_since) = line.strip().split(",")
+            if client_id_input == client_id:
+                return int(rating)
+    return None
 # ---- end of your code ----
 
 check('rating_of("C0132", ratings)', rating_of("C0132", ratings), 7)
@@ -127,7 +135,7 @@ check('rating_of("C9999", ratings)', rating_of("C9999", ratings), None)
 # ---- your code: part 6 ----
 def expected_loss(pd_value, ead, lgd=0.45):
     """EL = PD * LGD * EAD."""
-    pass
+    return pd_value * lgd * ead
 # ---- end of your code ----
 
 check("expected_loss(0.07, 651927.30)", expected_loss(0.07, 651927.30), 20535.70995)
@@ -143,7 +151,8 @@ check("expected_loss(0.02, 100000, lgd=0.25)", expected_loss(0.02, 100000, lgd=0
 # ---- your code: part 7 ----
 def portfolio_el(loans, ratings, scale, lgd=0.45):
     """The expected loss of all loans, rounded to 2 decimals."""
-    pass
+
+            
 # ---- end of your code ----
 
 check("portfolio_el(loans, ratings, scale)", portfolio_el(loans, ratings, scale), 1140106.56)
