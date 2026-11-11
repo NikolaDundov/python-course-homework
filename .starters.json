@@ -141,58 +141,54 @@
   "1bfccb922d0d"
  ],
  "05-lists-advanced/homework.py": [
-  "45aebfc13153",
+  "2cd83616aaaf",
+  "6ce38663eabb",
   "6f377b39bc09",
   "0b882c83039a",
-  "27de8978ae9a",
-  "8ef348352cef",
-  "15c2d6c017b0",
-  "dec03944936d"
+  "c3a8ad451b88",
+  "42cf1f7573ac",
+  "862950162b6b"
  ],
- "05-lists-advanced/practice/task1-comprehensions.py": [
+ "05-lists-advanced/practice/task1-list-methods.py": [
+  "da39a3ee5e6b",
+  "3e386dece67d",
+  "da39a3ee5e6b",
+  "a581dbcedc91",
+  "da39a3ee5e6b",
+  "b34408bb9664",
+  "a8b4492aa83f",
+  "8f948a514021"
+ ],
+ "05-lists-advanced/practice/task2-comprehensions.py": [
   "deb810b5d218",
   "8f6a36894d44",
   "c70ef124f58d",
   "bf8a96ef7f7d",
+  "4a8d7f94a3b1",
+  "a1543ba33490",
+  "da39a3ee5e6b"
+ ],
+ "05-lists-advanced/practice/task4-generators.py": [
+  "89e2a573ca7a",
   "e30770099633",
   "cd20ec78adab",
-  "56269335ac8d",
-  "4a8d7f94a3b1"
+  "9e90ad533d50",
+  "1b796b3472d0",
+  "7842a9199b48"
  ],
- "05-lists-advanced/practice/task3-checks-extremes.py": [
-  "322a8c2ebc24",
-  "3f140a20b511",
-  "182eb4b223ff",
-  "51980e93e692"
- ],
- "05-lists-advanced/practice/task4-sort-top-n.py": [
-  "54ace8afa09c",
-  "52caf70c4b43",
-  "2ea76287d545",
-  "d266f7645c26"
- ],
- "05-lists-advanced/practice/task5-zip-columns.py": [
+ "05-lists-advanced/practice/task5-zip.py": [
   "6ba8172e474e",
-  "1e8011190b38",
-  "d1c714b4005a",
-  "a0f6d3e42d16"
+  "7b0a9f577539",
+  "b62e4891e677",
+  "3ca46b58f218",
+  "7dfa6978c61e"
  ],
- "05-lists-advanced/practice/task6-table-of-rows.py": [
-  "c2ebebac55e6",
-  "81247c6a603e",
-  "4082d1b76d7e",
-  "e7bd0211f6da",
-  "959159829d9e"
- ],
- "06-dictionaries/homework.py": [
-  "2c216da212be",
-  "495a5432823a",
-  "df63bf35542c",
-  "21dd5168a62c",
-  "cc6c8e8c2f08",
-  "3036d2d4e0d5",
-  "081ec4bde8b3",
-  "876df9053d27"
+ "05-lists-advanced/practice/task6-clean-a-list.py": [
+  "5deb911450a7",
+  "376ab584d251",
+  "da39a3ee5e6b",
+  "bb0d3ee42024",
+  "1869a161879d"
  ],
  "06-dictionaries/practice/task1-dict-basics.py": [
   "a466ffb265a5",
@@ -204,37 +200,7 @@
   "704f862fe665",
   "bbd04a5fb5c6"
  ],
- "06-dictionaries/practice/task3-lookups.py": [
-  "280921388aa4",
-  "743c36a9e080",
-  "4f685c6f071c",
-  "d1e1b957965d",
-  "ddaa353d9ff1",
-  "cfe096ba910e"
- ],
- "06-dictionaries/practice/task4-count-and-sum.py": [
-  "693f4a6dac05",
-  "e9086081aaf3",
-  "31c022015076",
-  "ed99913ff168",
-  "3879d1d492e4",
-  "c8b7db9e21b7"
- ],
- "06-dictionaries/practice/task5-group-aggregates.py": [
-  "8ad105774508",
-  "21dd4f45a257",
-  "6dbd2eef0089",
-  "447100da816f"
- ],
- "06-dictionaries/practice/task6-nested-groups.py": [
-  "5da95de77fcc",
-  "41bb74559dd7",
-  "a31912bfe262",
-  "b2f51d4ea73a",
-  "a4a1f6e0b129",
-  "889952772f05"
- ],
- "07-text-processing/homework.py": [
+ "07-text-and-regex/homework.py": [
   "f0f0e6965000",
   "b11fbd557929",
   "42a90cf4c931",
@@ -245,47 +211,10 @@
   "e78aee435874",
   "a2b7943ccd97",
   "e6969adcb422",
-  "6868c57b8291"
+  "6868c57b8291",
+  "ed4c44503c36"
  ],
- "07-text-processing/practice/task1-case-and-spaces.py": [
-  "41300296f5cf",
-  "a2a1dc993fdb",
-  "e63ddc761845",
-  "adcea5649148",
-  "4e8ca2668d7b",
-  "f0ee58c70017"
- ],
- "07-text-processing/practice/task3-split-join.py": [
-  "d6f83f2d7549",
-  "106d554872ec",
-  "ff477c9e0162",
-  "57a5aee6ae75",
-  "96b66c89cceb",
-  "4ef4c1bda86c"
- ],
- "07-text-processing/practice/task4-identifiers.py": [
-  "ab032536fafa",
-  "42a90cf4c931",
-  "c7d7130eb4e2",
-  "f2d12fe82fb0",
-  "32aee790bb9f"
- ],
- "07-text-processing/practice/task5-amounts.py": [
-  "4196546a28f2",
-  "85fa22ee3d3c",
-  "9990f1005a3c",
-  "11c34847c54e",
-  "2f3ee90023fd"
- ],
- "07-text-processing/practice/task6-dates.py": [
-  "76fb60654e3c",
-  "fd4e10bc3e54",
-  "027c25577c00",
-  "4c2442994999",
-  "e3d1fe878088",
-  "abde3a07c5fe"
- ],
- "08-regular-expressions/homework.py": [
+ "07-text-and-regex/homework2-comments.py": [
   "e53b5c352bd7",
   "e58a698c3695",
   "26de8e1cb44d",
@@ -293,7 +222,59 @@
   "357ffe882e6d",
   "8d96e9085229"
  ],
- "08-regular-expressions/practice/task1-first-patterns.py": [
+ "07-text-and-regex/practice/task1-case-and-spaces.py": [
+  "41300296f5cf",
+  "a2a1dc993fdb",
+  "e63ddc761845",
+  "adcea5649148",
+  "4e8ca2668d7b",
+  "f0ee58c70017"
+ ],
+ "07-text-and-regex/practice/task10-amounts.py": [
+  "4196546a28f2",
+  "85fa22ee3d3c",
+  "9990f1005a3c",
+  "11c34847c54e",
+  "2f3ee90023fd"
+ ],
+ "07-text-and-regex/practice/task11-groups.py": [
+  "989c418bfc16",
+  "1347bda14a4b",
+  "9b982b39bf87",
+  "d25531872250"
+ ],
+ "07-text-and-regex/practice/task12-sub.py": [
+  "692d9f790933",
+  "c22f4e3ff9c9",
+  "41f6bb54964a",
+  "7d9f7d346a72",
+  "7ed4c87c98d5",
+  "f5a68f5853c4"
+ ],
+ "07-text-and-regex/practice/task3-split-join.py": [
+  "d6f83f2d7549",
+  "106d554872ec",
+  "ff477c9e0162",
+  "57a5aee6ae75",
+  "96b66c89cceb",
+  "4ef4c1bda86c"
+ ],
+ "07-text-and-regex/practice/task4-identifiers.py": [
+  "ab032536fafa",
+  "42a90cf4c931",
+  "c7d7130eb4e2",
+  "f2d12fe82fb0",
+  "32aee790bb9f"
+ ],
+ "07-text-and-regex/practice/task5-dates.py": [
+  "e9ddba1bd9da",
+  "e510c973a043",
+  "b303c3e6416d",
+  "027c25577c00",
+  "caf5b4686194",
+  "407566e9febf"
+ ],
+ "07-text-and-regex/practice/task6-first-patterns.py": [
   "3ddfef86a2ca",
   "7c153bee18a5",
   "51cc9ee839ed",
@@ -302,7 +283,7 @@
   "bc83aa1df58c",
   "f3484b46648a"
  ],
- "08-regular-expressions/practice/task3-validate.py": [
+ "07-text-and-regex/practice/task8-validate.py": [
   "6661f8358b6a",
   "4dcec70aefec",
   "766ad0d87d1e",
@@ -310,70 +291,56 @@
   "110b8e33db0e",
   "8f07c259f2fd"
  ],
- "08-regular-expressions/practice/task4-extract.py": [
+ "07-text-and-regex/practice/task9-extract.py": [
   "b2c0c8130ab7",
   "61d816828e0b",
   "eb868bcb2732",
   "e5fd9813e5db",
   "15f03ace68f2"
  ],
- "08-regular-expressions/practice/task5-groups.py": [
-  "989c418bfc16",
-  "1347bda14a4b",
-  "9b982b39bf87",
-  "d25531872250"
- ],
- "08-regular-expressions/practice/task6-sub.py": [
-  "692d9f790933",
-  "c22f4e3ff9c9",
-  "41f6bb54964a",
-  "7d9f7d346a72",
-  "7ed4c87c98d5",
-  "f5a68f5853c4"
- ],
- "09-errors-and-files/homework.py": [
+ "08-errors-and-files/homework.py": [
   "1d66706c71dc",
   "41d660d86d8a",
   "8d8f4d4689a7",
   "38fe05f6e511",
   "040d91ace13f"
  ],
- "09-errors-and-files/practice/task1-safe-convert.py": [
+ "08-errors-and-files/practice/task1-safe-convert.py": [
   "b2a56a8aba0f",
   "b09074d101de",
   "3dd12dc432c6",
   "9a9b8117ce0c"
  ],
- "09-errors-and-files/practice/task3-raise-checks.py": [
+ "08-errors-and-files/practice/task3-raise-checks.py": [
   "c6da2af002a5",
   "40b6f8d6a268",
   "45b7e640852f",
   "358ec44e0287",
   "e65ebc306287"
  ],
- "09-errors-and-files/practice/task4-paths-and-text.py": [
+ "08-errors-and-files/practice/task4-paths-and-text.py": [
   "38606e9f6793",
   "0700806a5134",
   "77692dd8ad5c",
   "229f00291240",
   "537d852f4da5"
  ],
- "09-errors-and-files/practice/task5-csv-json.py": [
+ "08-errors-and-files/practice/task5-csv-json.py": [
   "cd20e17b3c8f",
   "12d929e4b4be",
   "66ea047e87eb",
   "2ba08884b4f9",
   "00d524d1aaeb"
  ],
- "09-errors-and-files/practice/task6-excel.py": [
+ "08-errors-and-files/practice/task6-excel.py": [
   "daae26eedef5",
   "9351f9073f04",
   "024b0dfaabd0"
  ],
- "10-modules-and-git/homework.py": [
+ "09-modules-and-git/homework.py": [
   "bb09f5a8ccdc"
  ],
- "10-modules-and-git/homework_utils.py": [
+ "09-modules-and-git/homework_utils.py": [
   "57ef66741c76",
   "da39a3ee5e6b",
   "da39a3ee5e6b",
@@ -387,7 +354,7 @@
   "da39a3ee5e6b",
   "da39a3ee5e6b"
  ],
- "10-modules-and-git/practice/portfolio_utils.py": [
+ "09-modules-and-git/practice/portfolio_utils.py": [
   "35611e678458",
   "da39a3ee5e6b",
   "da39a3ee5e6b",
@@ -395,7 +362,7 @@
   "da39a3ee5e6b",
   "da39a3ee5e6b"
  ],
- "10-modules-and-git/practice/task1-standard-library.py": [
+ "09-modules-and-git/practice/task1-standard-library.py": [
   "12bdcca07bee",
   "a022de0195a1",
   "fabe21db7085",
@@ -404,11 +371,11 @@
   "0fa9843b6d34",
   "f1eb1969888f"
  ],
- "10-modules-and-git/practice/task3-my-module.py": [
+ "09-modules-and-git/practice/task3-my-module.py": [
   "bb540cd3c791",
   "d353ca7e684c"
  ],
- "10-modules-and-git/practice/task4-report-dates.py": [
+ "09-modules-and-git/practice/task4-report-dates.py": [
   "4c2442994999",
   "1ce4db20c5d9",
   "7569354577b9",
@@ -416,74 +383,74 @@
   "7f402a01f9df",
   "2dc4de5fc5a6"
  ],
- "10-modules-and-git/practice/task5-predict-git.py": [
+ "09-modules-and-git/practice/task5-predict-git.py": [
   "5c8dbb741345"
  ],
- "10-modules-and-git/practice/task6-project-layout.py": [
+ "09-modules-and-git/practice/task6-project-layout.py": [
   "5472876b9670",
   "d2714fee638d"
  ],
- "11-oop-classes/homework.py": [
+ "10-oop-classes/homework.py": [
   "90c06a9a3317",
   "cfb2430e751d",
   "20b43396942e",
   "a243dbe74d6c",
   "c18389567ce8"
  ],
- "11-oop-classes/practice/task1-first-class.py": [
+ "10-oop-classes/practice/task1-first-class.py": [
   "8f3290dc5e7e",
   "00064dfbf9c0"
  ],
- "11-oop-classes/practice/task3-loan-methods.py": [
+ "10-oop-classes/practice/task3-loan-methods.py": [
   "bb4dd1527960",
   "a78f6c64a78d"
  ],
- "11-oop-classes/practice/task4-validation-property.py": [
+ "10-oop-classes/practice/task4-validation-property.py": [
   "bb4dd1527960"
  ],
- "11-oop-classes/practice/task5-dataclasses.py": [
+ "10-oop-classes/practice/task5-dataclasses.py": [
   "18e064c73d95",
   "bb90b42b2a95",
   "636ba08a6e8a",
   "2f5368fb466b",
   "04a811bb60cd"
  ],
- "11-oop-classes/practice/task6-client-loans.py": [
+ "10-oop-classes/practice/task6-client-loans.py": [
   "bc277c6a511b",
   "7c49979c5a8e",
   "1dff8b7afb69"
  ],
- "12-oop-nomenclatures/homework.py": [
+ "11-oop-nomenclatures/homework.py": [
   "933aa766f595",
   "e149c7b91e4f",
   "a64bfffcedd5"
  ],
- "12-oop-nomenclatures/homework_nomenclature.py": [
+ "11-oop-nomenclatures/homework_nomenclature.py": [
   "8a5b8ddc8ab6",
   "da39a3ee5e6b",
   "da39a3ee5e6b",
   "da39a3ee5e6b",
   "da39a3ee5e6b"
  ],
- "12-oop-nomenclatures/practice/task1-nomenclature-basics.py": [
+ "11-oop-nomenclatures/practice/task1-nomenclature-basics.py": [
   "194342eb678c"
  ],
- "12-oop-nomenclatures/practice/task3-validation.py": [
+ "11-oop-nomenclatures/practice/task3-validation.py": [
   "194342eb678c"
  ],
- "12-oop-nomenclatures/practice/task4-apply.py": [
+ "11-oop-nomenclatures/practice/task4-apply.py": [
   "194342eb678c"
  ],
- "12-oop-nomenclatures/practice/task5-banded.py": [
+ "11-oop-nomenclatures/practice/task5-banded.py": [
   "321b38561fb1",
   "1e9de361bef3",
   "36dc06dd40b5"
  ],
- "12-oop-nomenclatures/practice/task6-registry.py": [
+ "11-oop-nomenclatures/practice/task6-registry.py": [
   "619e94f0aede",
   "784eba2b8161"
  ],
- "13-databases/homework.py": [
+ "12-databases/homework.py": [
   "4a3918d419d5",
   "ca2c27eb8692",
   "dfa9f79037c5",
@@ -491,50 +458,44 @@
   "5e5b744810d5",
   "c4f89a675590"
  ],
- "13-databases/practice/task1-first-queries.py": [
+ "12-databases/practice/task1-first-queries.py": [
   "2aeb41c3315e",
   "4153249240c7",
   "73c18409cc3f",
   "901b9c67a988",
   "6935de58cb66"
  ],
- "13-databases/practice/task2-parameters.py": [
+ "12-databases/practice/task2-parameters.py": [
   "2627c7672919",
   "45051a332e84",
   "c31e72e66f50",
   "f3fe31cfbaf4"
  ],
- "13-databases/practice/task3-aggregate-join.py": [
+ "12-databases/practice/task3-aggregate-join.py": [
   "599e4adcdaae",
   "7dea6bd5d95d",
   "74b0e86df469",
   "bc47ca5925ca",
   "0f903820ae11"
  ],
- "13-databases/practice/task4-write-transaction.py": [
+ "12-databases/practice/task4-write-transaction.py": [
   "bd7ab7f382e7",
   "847b68c12173",
   "d76f38db45b2",
   "adad194b0f41"
  ],
- "13-databases/practice/task5-read-sql.py": [
-  "9abfba22d454",
-  "fbb6075d0246",
-  "1e967047ea63",
-  "622f63cbf8c8"
- ],
- "13-databases/practice/task6-migration.py": [
+ "12-databases/practice/task5-migration.py": [
   "924ff716923f",
   "4f214e8aa708",
   "0982a04dc458",
   "e15cfb4a95cb"
  ],
- "14-numpy-pandas-intro/homework.py": [
+ "13-numpy-pandas-intro/homework.py": [
   "c25d3a0a64fa",
   "1575e992ba05",
   "72669848ecdd"
  ],
- "14-numpy-pandas-intro/practice/task1-numpy-arrays.py": [
+ "13-numpy-pandas-intro/practice/task1-numpy-arrays.py": [
   "31859805890d",
   "233c9114ea0c",
   "76d4a8f8d105",
@@ -542,34 +503,34 @@
   "348e5b89aa96",
   "b9097fd9c08e"
  ],
- "14-numpy-pandas-intro/practice/task3-where-select.py": [
+ "13-numpy-pandas-intro/practice/task3-where-select.py": [
   "519b1a394528",
   "f504b60eef86",
   "75ddb5b7af7f",
   "3a3b1fc1edb7",
   "a97c4c34109b"
  ],
- "14-numpy-pandas-intro/practice/task4-read-export.py": [
+ "13-numpy-pandas-intro/practice/task4-read-export.py": [
   "0aa04fa11e46",
   "7c61fdd9dd64",
   "2bcb38fe4b27",
   "daba14e9d52c"
  ],
- "14-numpy-pandas-intro/practice/task5-profile.py": [
+ "13-numpy-pandas-intro/practice/task5-profile.py": [
   "3907a07b4c5e",
   "acbbaf5a49ca",
   "77b89cadd3c8",
   "8d3f361b1cfc",
   "361dca167868"
  ],
- "14-numpy-pandas-intro/practice/task6-excel-sheets.py": [
+ "13-numpy-pandas-intro/practice/task6-excel-sheets.py": [
   "2aa824a673ec",
   "55c6573dbda1",
   "de25fb8d5c80",
   "16dad9d19b35",
   "866ba499704f"
  ],
- "15-pandas-select-aggregate-join/homework.py": [
+ "14-pandas-select-aggregate-join/homework.py": [
   "a1c7f1879807",
   "b31948361c50",
   "425751bd3b6c",
@@ -577,7 +538,7 @@
   "1615036fccd1",
   "74ab0555d16d"
  ],
- "15-pandas-select-aggregate-join/practice/task1-select.py": [
+ "14-pandas-select-aggregate-join/practice/task1-select.py": [
   "a16bf3a3d7cd",
   "b42861c4510c",
   "c6c9c82237a0",
@@ -585,46 +546,52 @@
   "994972b3c478",
   "78bb6567a445"
  ],
- "15-pandas-select-aggregate-join/practice/task3-new-columns.py": [
+ "14-pandas-select-aggregate-join/practice/task3-new-columns.py": [
   "30d502839983",
   "ad444494e273",
   "341bd665abc0",
   "5a8d1915c800",
   "1b7c3c772937"
  ],
- "15-pandas-select-aggregate-join/practice/task4-groupby.py": [
+ "14-pandas-select-aggregate-join/practice/task4-groupby.py": [
   "6a195353eabc",
   "ab3dab58b0bc",
   "3460ef369f23",
   "bf959115a428",
   "415805e767df"
  ],
- "15-pandas-select-aggregate-join/practice/task5-merge.py": [
+ "14-pandas-select-aggregate-join/practice/task5-merge.py": [
   "98b034fdf2a9",
   "696bcf75e090",
   "93369a614351",
   "5ed9784e21c4",
   "a71583eaab18"
  ],
- "15-pandas-select-aggregate-join/practice/task6-missing.py": [
+ "14-pandas-select-aggregate-join/practice/task6-missing.py": [
   "f1dab0700935",
   "214c5359f1ca",
   "7a082ca63589",
   "8c7a44e8767a"
  ],
- "16-pandas-reports-project/homework.py": [
+ "14-pandas-select-aggregate-join/practice/task7-read-sql.py": [
+  "9abfba22d454",
+  "fbb6075d0246",
+  "1e967047ea63",
+  "622f63cbf8c8"
+ ],
+ "15-pandas-reports/homework.py": [
   "36f2e7a95977",
   "9fa0ada8a211",
   "747bd781c372"
  ],
- "16-pandas-reports-project/practice/task1-pivot.py": [
+ "15-pandas-reports/practice/task1-pivot.py": [
   "519354998765",
   "24930f1bea38",
   "aada6cadc1db",
   "6012fd2f2f15",
   "0a329dc55ca1"
  ],
- "16-pandas-reports-project/practice/task2-dates.py": [
+ "15-pandas-reports/practice/task2-dates.py": [
   "214bfe19a321",
   "43cb6034c584",
   "6e93b880f066",
@@ -632,26 +599,26 @@
   "994bcc97d969",
   "ac83772acaa4"
  ],
- "16-pandas-reports-project/practice/task3-monthly-history.py": [
+ "15-pandas-reports/practice/task3-monthly-history.py": [
   "93152c3ab3af",
   "ee9f1f2693d4",
   "9772d9272e5a",
   "6633cba7a59d",
   "b03efcf33be2"
  ],
- "16-pandas-reports-project/practice/task4-migration.py": [
+ "15-pandas-reports/practice/task4-migration.py": [
   "3386f670e290",
   "2314b513e715",
   "50e8e4a7e34a",
   "a712e6c9b1c3",
   "7e437778f688"
  ],
- "16-pandas-reports-project/practice/task5-excel-report.py": [
+ "15-pandas-reports/practice/task5-excel-report.py": [
   "01abec604610",
   "747bd781c372",
   "071b1bf8e13d"
  ],
- "16-pandas-reports-project/practice/task6-chart.py": [
+ "15-pandas-reports/practice/task6-chart.py": [
   "4c195f403097",
   "1d324fc092f1"
  ]
