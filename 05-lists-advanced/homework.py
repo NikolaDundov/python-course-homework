@@ -23,7 +23,11 @@ from check import check, DATA
 watchlist = ["L000120", "L000007", "L000350", "L000007"]
 
 # ---- your code: part 1 ----
-pos_350 = None
+watchlist.remove("L000007" )
+watchlist = [w for w in watchlist if w != "L000999"]
+watchlist.append("L000246")
+watchlist.sort()
+pos_350 = watchlist.index("L000350")
 # ---- end of your code ----
 
 check("watchlist", watchlist, ["L000007", "L000120", "L000246", "L000350"])
@@ -45,7 +49,9 @@ def read_loans(path):
     with open(path, encoding="utf-8") as file:
         file.readline()                                     # skip the header
         rows = [line.strip().split(",") for line in file]   # lists of text
-    return []
+    return [
+            (r[0], r[2], float(r[7]), int(r[9])) for r in rows
+    ]
 # ---- end of your code ----
 
 loans = read_loans(DATA / "loans.csv")
@@ -61,7 +67,12 @@ check("loans[2]", loans[2] if loans else None, ("L000003", "credit_card", 644.25
 
 # ---- your code: part 3 ----
 def top_exposures(loans, n):
-    return []
+        return [
+        (rank, loan[0], loan[2])
+        for rank, loan in enumerate(sorted(loans, key=lambda loan: loan[2], reverse=True)[:n], start=1
+        )
+    ]
+    
 # ---- end of your code ----
 
 check("top_exposures(loans, 3)", top_exposures(loans, 3),
@@ -76,7 +87,9 @@ check("top_exposures(loans, 3)", top_exposures(loans, 3),
 
 # ---- your code: part 4 ----
 def concentration(loans, n):
-    return None
+    totals = sum(float(loan[2]) for loan in loans)
+    largest_loans = sum(l[2] for l in top_exposures(loans, n) )
+    return round(largest_loans / totals, 4) 
 # ---- end of your code ----
 
 check("concentration(loans, 5)", concentration(loans, 5), 0.2952)
@@ -93,7 +106,7 @@ check("concentration(loans, 400)", concentration(loans, 400), 1.0)
 
 # ---- your code: part 5 ----
 def late_summary(loans, days):
-    return None
+    return ((sum(1 for loan in loans if loan[3] > days)), (sum(float(loan[2]) for loan in loans if loan[3] > days)))
 # ---- end of your code ----
 
 check("late_summary(loans, 90)", late_summary(loans, 90), (17, 4299033.65))
@@ -107,7 +120,7 @@ check("late_summary(loans, 10000)", late_summary(loans, 10000), (0, 0))
 
 # ---- your code: part 6 ----
 def product_ids(loans, product):
-    return []
+    return [loan[0] for loan in loans if loan[1] == product]
 # ---- end of your code ----
 
 check("len(product_ids(loans, 'mortgage'))", len(product_ids(loans, "mortgage")), 45)
@@ -124,7 +137,10 @@ check("product_ids(loans, 'leasing')", product_ids(loans, "leasing"), [])
 
 # ---- your code: part 7 ----
 def month_changes(months, before, after):
-    return []
+      if len(months) != len(before) or len(before) != len(after):
+        return None
+      else:
+        return [(month, round(a - b, 1)) for month, b, a in zip(months, before, after)]
 # ---- end of your code ----
 
 check("month_changes", month_changes(["Jul", "Aug", "Sep"], [128.4, 129.1, 130.2], [129.9, 130.8, 129.7]),

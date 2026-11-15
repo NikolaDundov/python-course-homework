@@ -26,7 +26,7 @@ loans = [
 # total    the sum of outstanding of all loans, rounded to 2 decimals
 
 # ---- your code: part 1 ----
-total = None
+total = sum([loan[3] for loan in loans])
 # ---- end of your code ----
 
 check("total", total, 1816705.36)
@@ -36,7 +36,7 @@ check("total", total, 1816705.36)
 # usd_total    the sum of outstanding of the USD loans (not rounded)
 
 # ---- your code: part 2 ----
-usd_total = None
+usd_total = sum([loan[3] for loan in loans if loan[2] == "USD"])
 # ---- end of your code ----
 
 check("usd_total", usd_total, 101627.4)
@@ -46,7 +46,7 @@ check("usd_total", usd_total, 101627.4)
 # late_count    how many loans have days_past_due > 30
 
 # ---- your code: part 3 ----
-late_count = None
+late_count = len([loan[0] for loan in loans if loan[4] > 30])
 # ---- end of your code ----
 
 check("late_count", late_count, 3)
@@ -56,7 +56,7 @@ check("late_count", late_count, 3)
 # largest_overdraft    the largest outstanding of the overdrafts (max)
 
 # ---- your code: part 4 ----
-largest_overdraft = None
+largest_overdraft = max([loan[3] for loan in loans if loan[1] == "overdraft"])
 # ---- end of your code ----
 
 check("largest_overdraft", largest_overdraft, 12400.0)
@@ -72,9 +72,11 @@ check("largest_overdraft", largest_overdraft, 12400.0)
 #               None with the sum, inside the with block.
 
 # ---- your code: part 5 ----
+file_total = 0.0
 with open(DATA / "loans.csv", encoding="utf-8") as file:
     file.readline()                  # skip the header
-    file_total = None
+    file_total = sum((float(line.split(",")[7]) for line in file))
+
 # ---- end of your code ----
 
 check("file_total", file_total, 131370708.6)
@@ -89,7 +91,9 @@ check("file_total", file_total, 131370708.6)
 # ---- your code: part 6 ----
 with open(DATA / "loans.csv", encoding="utf-8") as file:
     file.readline()                  # skip the header
-    stage3_count = None
+    rows = [line.strip().split(",") for line in file]
+    #print(rows)
+    stage3_count = sum(1 for row in rows if row[10] == "3")
 # ---- end of your code ----
 
 check("stage3_count", stage3_count, 19)

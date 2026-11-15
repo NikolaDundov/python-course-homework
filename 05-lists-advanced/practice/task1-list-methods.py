@@ -13,7 +13,7 @@ from check import check
 ids = ["L000001", "L000002", "L000003", "L000004", "L000005"]
 
 # ---- your code: part 1 ----
-
+ids.remove("L000003")
 # ---- end of your code ----
 
 check("ids", ids, ["L000001", "L000002", "L000004", "L000005"])
@@ -24,7 +24,7 @@ check("ids", ids, ["L000001", "L000002", "L000004", "L000005"])
 # ids is the list after Part 1: do Part 1 first.
 
 # ---- your code: part 2 ----
-last = None
+last = ids.pop()
 # ---- end of your code ----
 
 check("last", last, "L000005")
@@ -39,7 +39,9 @@ check("ids", ids, ["L000001", "L000002", "L000004"])
 closed = ["L000002", "L000009"]
 
 # ---- your code: part 3 ----
-
+for id in ids:
+    if id in closed:
+        ids.remove(id)
 # ---- end of your code ----
 
 check("ids", ids, ["L000001", "L000004"])
@@ -54,8 +56,8 @@ months = ["Jul", "Aug", "Sep", "Oct"]
 outstanding = [128.4, 129.1, 130.2, 129.6]
 
 # ---- your code: part 4 ----
-sep_index = None
-sep_outstanding = None
+sep_index = months.index("Sep")
+sep_outstanding = outstanding[sep_index]
 # ---- end of your code ----
 
 check("sep_index", sep_index, 2)
@@ -67,7 +69,7 @@ check("sep_outstanding", sep_outstanding, 130.2)
 batch = ["L000010", "L000011", "L000012"]
 
 # ---- your code: part 5 ----
-
+batch.clear()
 # ---- end of your code ----
 
 check("batch", batch, [])
@@ -81,7 +83,8 @@ check("batch", batch, [])
 amounts = [5875.11, 651927.30, 644.25, 1044231.30]
 
 # ---- your code: part 6 ----
-ascending = None
+ascending = sorted(amounts)
+amounts.sort(reverse=True)
 # ---- end of your code ----
 
 check("ascending", ascending, [644.25, 5875.11, 651927.30, 1044231.30])
@@ -103,8 +106,8 @@ loans = [
 ]
 
 # ---- your code: part 7 ----
-by_product = None
-top2 = None
+by_product = sorted(loans, key=lambda loan:loan[1])
+top2 = sorted(loans, key=lambda loan:loan[2], reverse=True)[:2]
 # ---- end of your code ----
 
 check("the products of by_product", [loan[1] for loan in by_product or []],
@@ -117,7 +120,7 @@ check("top2", top2, [("L000001", "investment", 1044231.30), ("L000002", "investm
 #              with key
 
 # ---- your code: part 8 ----
-smallest = None
+smallest = min(loans, key=lambda loan:loan[2])
 # ---- end of your code ----
 
 check("smallest", smallest, ("L000003", "credit_card", 644.25))

@@ -16,7 +16,7 @@ products = ["investment", "investment", "credit_card"]
 amounts = [1044231.30, 651927.30, 644.25]
 
 # ---- your code: part 1 ----
-records = None
+records = list(zip(loan_ids, products, amounts))
 # ---- end of your code ----
 
 check("records", records, [("L000001", "investment", 1044231.30), ("L000002", "investment", 651927.30),
@@ -30,7 +30,7 @@ outstanding = [1044231.30, 651927.30, 644.25]
 rates = [8.83, 5.44, 4.79]
 
 # ---- your code: part 2 ----
-interest = None
+interest = [round(o * r / 100,2) for o,r in zip(outstanding, rates)]
 # ---- end of your code ----
 
 check("interest", interest, [92205.62, 35464.85, 30.86])
@@ -46,8 +46,10 @@ outstanding_2025 = [128.4, 129.1, 130.2, 131.0]      # EUR million
 outstanding_2026 = [129.9, 130.8, 129.7, 131.4]
 
 # ---- your code: part 3 ----
-changes = None
-growth_months = None
+changes = []
+changes = [round(o26-o25, 2) for o25, o26 in zip(outstanding_2025, outstanding_2026)]
+
+growth_months = [m  for m, o25, o26 in zip(months, outstanding_2025, outstanding_2026) if o26 > o25]
 # ---- end of your code ----
 
 check("changes", changes, [1.5, 1.7, -0.5, 0.4])
@@ -63,8 +65,8 @@ ids = ["L000001", "L000002", "L000003", "L000004"]
 values = [800.0, 15900.0, 644.25]
 
 # ---- your code: part 4 ----
-same_length = None
-without_pair = None
+same_length = len(ids) == len(values)
+without_pair = ids[len(values):]
 # ---- end of your code ----
 
 check("same_length", same_length, False)
@@ -86,7 +88,9 @@ loans = [
 ]
 
 # ---- your code: part 5 ----
-ranked = None
+ranked = [(rank, loan_id) for rank, (loan_id, amount) in 
+          enumerate(sorted(loans, key=lambda x: x[1], reverse=True)[:3], start=1)
+]
 # ---- end of your code ----
 
 check("ranked", ranked, [(1, "L000001"), (2, "L000002"), (3, "L000006")])

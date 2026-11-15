@@ -25,7 +25,7 @@ loans = [
 # ids    all loan_ids, in the order of loans
 
 # ---- your code: part 1 ----
-ids = None
+ids = [loan[0] for loan in loans]
 # ---- end of your code ----
 
 check("ids", ids, ["L000001", "L000002", "L000003", "L000004", "L000005", "L000006", "L000007"])
@@ -36,7 +36,7 @@ check("ids", ids, ["L000001", "L000002", "L000003", "L000004", "L000005", "L0000
 #                 (a list of numbers, in the order of loans)
 
 # ---- your code: part 2 ----
-in_thousands = None
+in_thousands = [round(float(loan[3])/1000,1) for loan in loans]
 # ---- end of your code ----
 
 check("in_thousands", in_thousands, [1044.2, 651.9, 0.6, 5.9, 3.1, 98.5, 12.4])
@@ -46,7 +46,8 @@ check("in_thousands", in_thousands, [1044.2, 651.9, 0.6, 5.9, 3.1, 98.5, 12.4])
 # late_ids    the loan_ids with days_past_due over 30 (SQL WHERE)
 
 # ---- your code: part 3 ----
-late_ids = None
+late_ids = [loan[0] for loan in loans if loan[4] > 30]
+
 # ---- end of your code ----
 
 check("late_ids", late_ids, ["L000002", "L000005", "L000007"])
@@ -56,7 +57,8 @@ check("late_ids", late_ids, ["L000002", "L000005", "L000007"])
 # flags    "late" if days_past_due > 30, else "ok" - one per loan (SQL CASE WHEN)
 
 # ---- your code: part 4 ----
-flags = None
+flags = ["late" if days_past_due > 30 else "ok" for _, _, _, _, days_past_due in loans]
+print(flags)
 # ---- end of your code ----
 
 check("flags", flags, ["ok", "late", "ok", "ok", "late", "ok", "late"])
@@ -67,7 +69,9 @@ check("flags", flags, ["ok", "late", "ok", "ok", "late", "ok", "late"])
 #                   outstanding over 5000
 
 # ---- your code: part 5 ----
-big_overdrafts = None
+big_overdrafts = [(loan_id, outstanding)  for loan_id, product, currency, outstanding, 
+                  days_past_due in loans if outstanding > 5000 and product =="overdraft"]
+print(big_overdrafts)
 # ---- end of your code ----
 
 check("big_overdrafts", big_overdrafts, [("L000004", 5875.11), ("L000007", 12400.0)])
@@ -86,7 +90,7 @@ def dpd_bucket(days_past_due):
     return "90+"
 
 # ---- your code: part 6 ----
-buckets = None
+buckets = [dpd_bucket(loan[4]) for loan in loans]
 # ---- end of your code ----
 
 check("buckets", buckets, ["current", "31-90", "current", "current", "90+", "1-30", "31-90"])
@@ -98,7 +102,7 @@ check("buckets", buckets, ["current", "31-90", "current", "current", "90+", "1-3
 amounts = [0.0, 1200.0, 0.0, 500.0, 0.0]
 
 # ---- your code: part 7 ----
-
+amounts = [a for a in amounts if a > 0]
 # ---- end of your code ----
 
 check("amounts", amounts, [1200.0, 500.0])

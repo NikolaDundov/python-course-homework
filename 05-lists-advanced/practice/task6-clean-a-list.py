@@ -27,8 +27,9 @@ records = [
 # Then remove the record at that position from records (del).
 
 # ---- your code: part 1 ----
-ids = None
-test_pos = None
+ids = [rec[0] for rec in records]
+test_pos = ids.index("TEST01")
+records.pop(test_pos)
 # ---- end of your code ----
 
 check("test_pos", test_pos, 1)
@@ -39,7 +40,7 @@ check("len(records)", len(records), 6)
 # active    the records with outstanding greater than 0, in a new list
 
 # ---- your code: part 2 ----
-active = None
+active = [l for l in records if l[1] > 0]
 # ---- end of your code ----
 
 check("active", active, [("L000005", 3127.40), ("L000001", 1044231.30), ("L000002", 651927.30), ("L000004", 5875.11)])
@@ -50,7 +51,7 @@ check("active", active, [("L000005", 3127.40), ("L000001", 1044231.30), ("L00000
 # sort, with key.
 
 # ---- your code: part 3 ----
-
+active.sort(key=lambda r:r[0])
 # ---- end of your code ----
 
 check("the ids of active", [r[0] for r in active or []], ["L000001", "L000002", "L000004", "L000005"])
@@ -62,8 +63,8 @@ check("the ids of active", [r[0] for r in active or []], ["L000001", "L000002", 
 # (generator expressions)
 
 # ---- your code: part 4 ----
-total = None
-big_count = None
+total = round(sum([a[1] for a in active]),2)
+big_count = sum([1 for a in active if a[1] > 5000])
 # ---- end of your code ----
 
 check("total", total, 1705161.11)
@@ -76,7 +77,11 @@ check("big_count", big_count, 3)
 #           (sorted with key and reverse, enumerate with start=1)
 
 # ---- your code: part 5 ----
-report = None
+report_list = []
+active.sort(key=lambda loan: loan[1], reverse=True)
+for rank, loan in enumerate(active, start=1):
+    report_list.append(f"{rank}. {loan[0]}: {loan[1]:,.2f}")
+report = report_list
 # ---- end of your code ----
 
 check("report", report, ["1. L000001: 1,044,231.30", "2. L000002: 651,927.30",
