@@ -13,7 +13,7 @@ from check import check
 #          "overdraft" -> "Overdraft"
 
 # ---- your code: part 1 ----
-names = {}
+names = {"mortgage" : "Mortgage loan", "consumer" : "Consumer loan", "overdraft" : "Overdraft"}
 # ---- end of your code ----
 
 # =============================================================================
@@ -21,7 +21,7 @@ names = {}
 # overdraft    the name of "overdraft", read from names with []
 
 # ---- your code: part 2 ----
-overdraft = None
+overdraft = names["overdraft"]
 # ---- end of your code ----
 
 check("overdraft", overdraft, "Overdraft")
@@ -31,7 +31,7 @@ check("overdraft", overdraft, "Overdraft")
 # leasing    the name of "leasing", read with get and the default "Other"
 
 # ---- your code: part 3 ----
-leasing = None
+leasing = names.get("leasing", "Other")
 # ---- end of your code ----
 
 check("leasing", leasing, "Other")
@@ -43,7 +43,9 @@ check("leasing", leasing, "Other")
 # (the value that pop returns).
 
 # ---- your code: part 4 ----
-removed = None
+names["credit_card"] = "Credit card"
+names["mortgage"] = "Housing loan"
+removed = names.pop("consumer")
 # ---- end of your code ----
 
 check("removed", removed, "Consumer loan")
@@ -54,7 +56,7 @@ check("names", names, {"mortgage": "Housing loan", "overdraft": "Overdraft", "cr
 # codes    a list of the keys of names (after part 4), sorted alphabetically
 
 # ---- your code: part 5 ----
-codes = None
+codes = sorted(segment for segment in names)
 # ---- end of your code ----
 
 check("codes", codes, ["credit_card", "mortgage", "overdraft"])
@@ -64,7 +66,7 @@ check("codes", codes, ["credit_card", "mortgage", "overdraft"])
 # has_leasing    True if "leasing" is a key of names, else False (use in)
 
 # ---- your code: part 6 ----
-has_leasing = None
+has_leasing = "leasing" in names
 # ---- end of your code ----
 
 check("has_leasing", has_leasing, False)
@@ -79,7 +81,10 @@ check("has_leasing", has_leasing, False)
 
 # ---- your code: part 7 ----
 def name_of(code, nomenclature):
-    return None
+    if code in nomenclature:
+        return nomenclature[code]
+    else:
+        return "Unknown: " + code
 # ---- end of your code ----
 
 check('name_of("overdraft", names)', name_of("overdraft", names), "Overdraft")
@@ -93,7 +98,7 @@ grades = ["AAA", "AA", "A", "BBB"]
 pds = [0.0003, 0.0008, 0.0018, 0.0043]
 
 # ---- your code: part 8 ----
-pd_of_grade = None
+pd_of_grade = dict(zip(grades, pds))
 # ---- end of your code ----
 
 check("pd_of_grade", pd_of_grade, {"AAA": 0.0003, "AA": 0.0008, "A": 0.0018, "BBB": 0.0043})
