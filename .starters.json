@@ -210,9 +210,9 @@
   "00a2e4876568",
   "e78aee435874",
   "a2b7943ccd97",
-  "e6969adcb422",
+  "fe88d85d4bfd",
   "6868c57b8291",
-  "ed4c44503c36"
+  "cb27d8a6debd"
  ],
  "07-text-and-regex/homework2-comments.py": [
   "e53b5c352bd7",
@@ -220,7 +220,7 @@
   "26de8e1cb44d",
   "e836acb46071",
   "357ffe882e6d",
-  "8d96e9085229"
+  "986cff263989"
  ],
  "07-text-and-regex/practice/task1-case-and-spaces.py": [
   "41300296f5cf",
@@ -270,8 +270,7 @@
   "e9ddba1bd9da",
   "e510c973a043",
   "b303c3e6416d",
-  "027c25577c00",
-  "caf5b4686194",
+  "1bd8cfea3d74",
   "407566e9febf"
  ],
  "07-text-and-regex/practice/task6-first-patterns.py": [
@@ -296,7 +295,7 @@
   "61d816828e0b",
   "eb868bcb2732",
   "e5fd9813e5db",
-  "15f03ace68f2"
+  "ef885615ebf0"
  ],
  "08-errors-and-files/homework.py": [
   "1d66706c71dc",
@@ -375,13 +374,13 @@
   "bb540cd3c791",
   "d353ca7e684c"
  ],
- "09-modules-and-git/practice/task4-report-dates.py": [
-  "4c2442994999",
-  "1ce4db20c5d9",
-  "7569354577b9",
-  "f89b7db9dcf3",
-  "7f402a01f9df",
-  "2dc4de5fc5a6"
+ "09-modules-and-git/practice/task4-report-helpers.py": [
+  "b3bf9940bac4",
+  "cd9733e3c681",
+  "11909fed5891",
+  "046bb943665b",
+  "d14658d37064",
+  "4e15d74b738f"
  ],
  "09-modules-and-git/practice/task5-predict-git.py": [
   "5c8dbb741345"
@@ -389,6 +388,14 @@
  "09-modules-and-git/practice/task6-project-layout.py": [
   "5472876b9670",
   "d2714fee638d"
+ ],
+ "09-modules-and-git/practice/task7-report-dates.py": [
+  "4c2442994999",
+  "1ce4db20c5d9",
+  "7569354577b9",
+  "f89b7db9dcf3",
+  "7f402a01f9df",
+  "2dc4de5fc5a6"
  ],
  "10-oop-classes/homework.py": [
   "90c06a9a3317",
