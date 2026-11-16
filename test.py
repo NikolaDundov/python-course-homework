@@ -1,1 +1,7 @@
-print({v: k for k, v in {"a": 1, "b": 1}.items()})
+a = 5
+
+b = a 
+
+b = 10
+
+print(a, b)

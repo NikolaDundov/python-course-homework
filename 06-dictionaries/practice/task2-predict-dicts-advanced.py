@@ -12,5 +12,5 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # the repository r
 from check import check
 
 d = {"x": 1, "y": 2}
-check('d.setdefault("x", 99)', d.setdefault("x", 99), {"x": 1, "y": 2})
+check('d.setdefault("x", 99)', d.setdefault("x", 99), 1)
 check('{v: k for k, v in {"a": 1, "b": 1}.items()}', {v: k for k, v in {"a": 1, "b": 1}.items()}, {1: 'b'})
