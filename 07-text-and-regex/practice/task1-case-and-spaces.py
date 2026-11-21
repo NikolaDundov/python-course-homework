@@ -16,7 +16,7 @@ from check import check
 
 # ---- your code: part 1 ----
 def squeeze(s):
-    return s
+    return " ".join(s.split())
 # ---- end of your code ----
 
 check('squeeze("  Iron   Retail  ET ")', squeeze("  Iron   Retail  ET "), "Iron Retail ET")
@@ -29,7 +29,7 @@ check('squeeze("\\tC0001 \\n")', squeeze("\tC0001 \n"), "C0001")
 
 # ---- your code: part 2 ----
 def proper(s):
-    return s
+    return squeeze(s).title()
 # ---- end of your code ----
 
 check('proper("rila   PRINT")', proper("rila   PRINT"), "Rila Print")
@@ -41,7 +41,9 @@ check('proper("rila   PRINT")', proper("rila   PRINT"), "Rila Print")
 
 # ---- your code: part 3 ----
 def clean_city(s):
-    return s
+    squeezed = squeeze(s)
+    prefixed = squeezed.removeprefix("gr. ")
+    return proper(prefixed)
 # ---- end of your code ----
 
 check('clean_city("  gr. stara zagora")', clean_city("  gr. stara zagora"), "Stara Zagora")
@@ -56,7 +58,9 @@ check('clean_city("gr. ruse")', clean_city("gr. ruse"), "Ruse")
 
 # ---- your code: part 4 ----
 def clean_code(s):
-    return s
+    trimmed = s.strip()
+    smaller = trimmed.lower()
+    return smaller.replace(" ", "_").replace("-", "_")
 # ---- end of your code ----
 
 check('clean_code("Credit Card")', clean_code("Credit Card"), "credit_card")
@@ -69,7 +73,7 @@ check('clean_code(" WORKING-CAPITAL ")', clean_code(" WORKING-CAPITAL "), "worki
 
 # ---- your code: part 5 ----
 def same_text(a, b):
-    return None
+    return squeeze(a).lower() == squeeze(b).lower()
 # ---- end of your code ----
 
 check('same_text("SOFIA ", "sofia")', same_text("SOFIA ", "sofia"), True)
@@ -83,7 +87,11 @@ check('same_text("Ruse", "Russe")', same_text("Ruse", "Russe"), False)
 
 # ---- your code: part 6 ----
 def initials(name):
-    return ""
+    arr = name.split()
+    result = []
+    for n in arr:
+        result.append(n[0].upper() + ".") 
+    return "".join(result)
 # ---- end of your code ----
 
 check('initials("nikolay kolev")', initials("nikolay kolev"), "N.K.")
