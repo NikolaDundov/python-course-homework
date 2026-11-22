@@ -34,4 +34,4 @@ check('"Sofia" < "sofia"', "Sofia" < "sofia", True)
 
 s = " C0001 "
 s.strip()
-check("s after s.strip() without =", s, " C001 ")
+check("s after s.strip() without =", s, " C0001 ")

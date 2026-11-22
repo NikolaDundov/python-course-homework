@@ -15,7 +15,16 @@ from check import check
 
 # ---- your code: part 1 ----
 def parse_settings(text):
-    return {}
+    result = {}
+
+    for part in text.split(";"):
+        part = part.strip()
+
+        if part:
+            key, value = part.split("=", 1)
+            result[key.strip()] = value.strip()
+
+    return result
 # ---- end of your code ----
 
 check('parse_settings("lgd=0.45;currency=EUR")', parse_settings("lgd=0.45;currency=EUR"),
@@ -30,7 +39,12 @@ check('parse_settings(" lgd = 0.45 ;; report_date=2026-09-30;")',
 
 # ---- your code: part 2 ----
 def settings_text(settings):
-    return ""
+    result = []
+
+    for key in sorted(settings):
+        result.append(f"{key}={settings[key]}")
+
+    return ";".join(result)
 # ---- end of your code ----
 
 check('settings_text({"lgd": "0.45", "currency": "EUR"})', settings_text({"lgd": "0.45", "currency": "EUR"}),
@@ -44,7 +58,13 @@ check('settings_text({"lgd": "0.45", "currency": "EUR"})', settings_text({"lgd":
 
 # ---- your code: part 3 ----
 def scan(text, n, sep):
-    return ""
+    list_text = text.split(sep)
+    if n > len(list_text) or n == 0:
+        return ""
+    if n < 0:
+        return list_text[n]
+    else:
+        return list_text[n-1]
 # ---- end of your code ----
 
 check('scan("L000002,C0132,investment", 2, ",")', scan("L000002,C0132,investment", 2, ","), "C0132")
@@ -60,7 +80,16 @@ check('scan("a b", 5, " ")', scan("a b", 5, " "), "")
 
 # ---- your code: part 4 ----
 def to_csv_line(values):
-    return ""
+    result = []
+    for value in values:
+        if value is None:
+            result.append("")
+        elif isinstance(value, float):
+            str_value = f"{value:.2f}"
+            result.append(str_value)
+        else:
+            result.append(str(value))
+    return ",".join(result)
 # ---- end of your code ----
 
 check('to_csv_line(["L000002", 651927.3, 2, None, "EUR"])', to_csv_line(["L000002", 651927.3, 2, None, "EUR"]),
@@ -75,7 +104,12 @@ LEGAL_FORMS = ("OOD", "EOOD", "AD", "EAD", "ET")
 
 # ---- your code: part 5 ----
 def legal_form(name):
-    return ""
+    legal = name.split(" ")[-1].upper()
+    legal = legal.replace(".", "")
+    if legal in LEGAL_FORMS:
+        return legal
+    else:
+        return ""
 # ---- end of your code ----
 
 check('legal_form("Black Sea Design ET")', legal_form("Black Sea Design ET"), "ET")
@@ -90,7 +124,15 @@ check('legal_form("")', legal_form(""), "")
 
 # ---- your code: part 6 ----
 def words_of(comment):
-    return []
+    result = []
+    excluded_symbols = [".", ",", ";", ":"]
+    list_words = comment.split()
+    for word in list_words:
+        if word[-1] in excluded_symbols:
+            result.append(word[:-1].lower())
+        else:
+            result.append(word.lower())
+    return result
 # ---- end of your code ----
 
 check('words_of("Overdue 35 days. Reminder sent; call: tomorrow.")',

@@ -5,6 +5,7 @@
 # value cannot be cleaned.
 
 import sys
+import re
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # the repository root, where check.py is
@@ -18,7 +19,10 @@ from check import check
 
 # ---- your code: part 1 ----
 def clean_client_id(raw):
-    return None
+    s = raw.strip().upper().replace(" ", "").replace("-", "")
+    if not s.startswith("C") or not s[1:].isdigit() or len(s[1:]) > 4:
+        return None
+    return "C" + s[1:].zfill(4)
 # ---- end of your code ----
 
 check('clean_client_id("c 17")', clean_client_id("c 17"), "C0017")
@@ -34,7 +38,12 @@ check('clean_client_id("C12345")', clean_client_id("C12345"), None)
 
 # ---- your code: part 2 ----
 def clean_eik(raw):
-    return None
+    replaced = "".join(raw.split()).lower()
+    result = replaced.removeprefix("bg")
+    if len(result) == 9 or len(result) == 13:
+        return result
+    else:
+        return None
 # ---- end of your code ----
 
 check('clean_eik("BG 165 960 351")', clean_eik("BG 165 960 351"), "165960351")
@@ -48,7 +57,11 @@ check('clean_eik("12345678")', clean_eik("12345678"), None)
 
 # ---- your code: part 3 ----
 def clean_iban(raw):
-    return None
+    result = raw.replace(" ", "").upper()
+    if len(result) == 22 and result[:2] == "BG" and result.isalnum():
+        return result
+    else:
+        return None
 # ---- end of your code ----
 
 check('clean_iban("bg05 test 7701 8249 4644 61")', clean_iban("bg05 test 7701 8249 4644 61"), "BG05TEST77018249464461")
@@ -62,7 +75,12 @@ check('clean_iban("DE89370400440532013000")', clean_iban("DE89370400440532013000
 
 # ---- your code: part 4 ----
 def clean_email(raw):
-    return None
+    stripped = raw.strip().lower()
+    email = r"[^@\s]+@[^@\s]+\.[A-Za-z]{2,}"
+    if re.fullmatch(email, stripped):
+        return stripped
+    else:
+        return None
 # ---- end of your code ----
 
 check('clean_email(" Yana.Koleva@Example.org")', clean_email(" Yana.Koleva@Example.org"), "yana.koleva@example.org")
@@ -79,7 +97,16 @@ check('clean_email("a@@b.c")', clean_email("a@@b.c"), None)
 
 # ---- your code: part 5 ----
 def clean_column(values, cleaner):
-    return [], 0, 0
+    cleaner = clean_client_id
+    result = []
+    counter = 0
+    for value in values:
+        if not cleaner(value) is None:
+            result.append(clean_client_id(value))
+        else:
+            result.append(None)
+            counter +=1
+    return result, len(result) - counter, counter
 # ---- end of your code ----
 
 check('clean_column(["C1", "c0002", "x"], clean_client_id)', clean_column(["C1", "c0002", "x"], clean_client_id),
